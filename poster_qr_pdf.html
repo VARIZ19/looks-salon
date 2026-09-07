@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Looks Salon - PDF Service Menu QR Poster</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0d0c0a;
+      color: #eae6df;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .poster-page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      background: radial-gradient(circle at 50% 25%, #1c1a16 0%, #0c0c0a 80%);
+      padding: 12mm 14mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Luxury Outer Borders */
+    .border-outer {
+      position: absolute;
+      top: 5mm;
+      left: 5mm;
+      right: 5mm;
+      bottom: 5mm;
+      border: 1.5px solid rgba(212, 175, 55, 0.45);
+      pointer-events: none;
+    }
+
+    .border-inner {
+      position: absolute;
+      top: 7.5mm;
+      left: 7.5mm;
+      right: 7.5mm;
+      bottom: 7.5mm;
+      border: 0.8px solid rgba(212, 175, 55, 0.2);
+      pointer-events: none;
+    }
+
+    .corner-decor {
+      position: absolute;
+      width: 14mm;
+      height: 14mm;
+      border-color: #d4af37;
+      pointer-events: none;
+    }
+    .c-tl { top: 6mm; left: 6mm; border-top: 2.5px solid #d4af37; border-left: 2.5px solid #d4af37; }
+    .c-tr { top: 6mm; right: 6mm; border-top: 2.5px solid #d4af37; border-right: 2.5px solid #d4af37; }
+    .c-bl { bottom: 6mm; left: 6mm; border-bottom: 2.5px solid #d4af37; border-left: 2.5px solid #d4af37; }
+    .c-br { bottom: 6mm; right: 6mm; border-bottom: 2.5px solid #d4af37; border-right: 2.5px solid #d4af37; }
+
+    /* Header */
+    .poster-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3mm;
+      position: relative;
+      z-index: 2;
+      padding-top: 4mm;
+    }
+
+    .logo-box {
+      width: 130px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-box svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .branch-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #0d0c0a;
+      background: linear-gradient(135deg, #d4af37 0%, #ecd07a 50%, #b8972e 100%);
+      padding: 3px 16px;
+      border-radius: 2px;
+      margin-top: 1mm;
+    }
+
+    .title-group {
+      margin-top: 2mm;
+    }
+
+    .main-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fbf9f5;
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #c5a059;
+      margin-top: 1.5mm;
+    }
+
+    /* Main Hero QR Section */
+    .hero-qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      margin: 3mm 0;
+    }
+
+    .qr-card-container {
+      background: rgba(22, 20, 17, 0.85);
+      border: 1.8px solid rgba(212, 175, 55, 0.45);
+      border-radius: 8px;
+      padding: 7mm 9mm 6mm 9mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.12);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+
+    .qr-card-badge {
+      position: absolute;
+      top: -3.5mm;
+      background: #d4af37;
+      color: #0c0c0a;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 2px 14px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 4.5mm;
+      border-radius: 6px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2mm;
+    }
+
+    .qr-frame img {
+      width: 60mm;
+      height: 60mm;
+      display: block;
+    }
+
+    .scan-cta {
+      margin-top: 4.5mm;
+      text-align: center;
+    }
+
+    .scan-cta-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d4af37;
+    }
+
+    .scan-cta-desc {
+      font-size: 0.72rem;
+      color: #d0ccc4;
+      margin-top: 1.5mm;
+      letter-spacing: 1px;
+    }
+
+    /* Value Pillars */
+    .features-row {
+      display: flex;
+      justify-content: center;
+      gap: 7mm;
+      margin-top: 5mm;
+      width: 100%;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 2.5mm 4.5mm;
+      border-radius: 4px;
+    }
+
+    .feature-text {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #ece8e1;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    /* Menu Categories Highlights */
+    .categories-preview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .cat-card {
+      background: rgba(25, 23, 20, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 4px;
+      padding: 3mm 2.5mm;
+      text-align: center;
+    }
+
+    .cat-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cat-sub {
+      font-size: 0.58rem;
+      color: #a8a49c;
+      margin-top: 1mm;
+      line-height: 1.3;
+    }
+
+    /* Patna Exclusive Footer Info Card */
+    .patna-footer-card {
+      background: rgba(22, 20, 17, 0.95);
+      border: 1.2px solid rgba(212, 175, 55, 0.35);
+      border-radius: 6px;
+      padding: 4mm 6mm;
+      display: grid;
+      grid-template-columns: 1.15fr 1.3fr;
+      gap: 6mm;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    .pfc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8mm;
+    }
+
+    .pfc-brand {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+
+    .pfc-brand-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #d4af37;
+      letter-spacing: 1.5px;
+    }
+
+    .pfc-branch-pill {
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      background: #d4af37;
+      color: #0c0c0a;
+      padding: 1.5px 6px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .pfc-address {
+      display: flex;
+      align-items: flex-start;
+      gap: 2mm;
+      font-size: 0.62rem;
+      color: #d8d4cb;
+      line-height: 1.35;
+    }
+
+    .pfc-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6mm;
+      border-left: 1px solid rgba(212, 175, 55, 0.2);
+      padding-left: 5mm;
+      font-size: 0.62rem;
+      color: #d8d4cb;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .contact-item strong {
+      color: #ffffff;
+    }
+
+    /* Bottom Brand Bar */
+    .bottom-bar {
+      text-align: center;
+      font-size: 0.55rem;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #8f8b83;
+      padding-top: 1mm;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+<div class="poster-page">
+  <div class="border-outer"></div>
+  <div class="border-inner"></div>
+  <div class="corner-decor c-tl"></div>
+  <div class="corner-decor c-tr"></div>
+  <div class="corner-decor c-bl"></div>
+  <div class="corner-decor c-br"></div>
+
+  <!-- Header -->
+  <header class="poster-header">
+    <div class="logo-box">
+      <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="150px" height="59px" viewBox="0 0 150 59" enable-background="new 0 0 150 59" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M22.856,32.081H2.251V1.647h6.018v24.72h14.587V32.081z"/>
+	<path fill="#FFFFFF" d="M56.212,16.846c0,2.184-0.424,4.241-1.274,6.169c-0.85,1.93-2.01,3.605-3.48,5.028
+		c-1.471,1.422-3.184,2.546-5.136,3.37c-1.954,0.825-4.033,1.237-6.239,1.237c-2.208,0-4.293-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.156-3.37c-1.47-1.423-2.63-3.092-3.48-5.009c-0.85-1.917-1.273-3.98-1.273-6.189
+		c0-2.21,0.424-4.279,1.273-6.208c0.85-1.93,2.01-3.606,3.48-5.027c1.472-1.422,3.19-2.54,5.156-3.353
+		c1.965-0.813,4.051-1.219,6.258-1.219c2.206,0,4.286,0.407,6.239,1.219c1.952,0.813,3.665,1.937,5.136,3.371
+		c1.471,1.434,2.63,3.111,3.48,5.027C55.788,12.573,56.212,14.636,56.212,16.846z M50.309,16.846c0-1.396-0.267-2.711-0.802-3.943
+		c-0.535-1.231-1.266-2.31-2.194-3.236c-0.928-0.927-2.016-1.664-3.262-2.21c-1.246-0.545-2.569-0.818-3.968-0.818
+		c-1.425,0-2.761,0.273-4.008,0.818c-1.246,0.547-2.333,1.283-3.261,2.21c-0.929,0.927-1.661,2.005-2.194,3.236
+		c-0.535,1.232-0.801,2.546-0.801,3.943c0,1.37,0.267,2.679,0.801,3.923c0.534,1.244,1.266,2.329,2.194,3.256
+		c0.928,0.927,2.016,1.663,3.261,2.209c1.247,0.545,2.583,0.818,4.008,0.818c1.399,0,2.723-0.273,3.968-0.818
+		c1.246-0.546,2.334-1.283,3.262-2.209c0.928-0.927,1.659-2.012,2.194-3.256C50.042,19.525,50.309,18.216,50.309,16.846z"/>
+	<path fill="#FFFFFF" d="M92.769,16.846c0,2.184-0.425,4.241-1.275,6.169c-0.85,1.93-2.009,3.605-3.481,5.028
+		c-1.47,1.422-3.181,2.546-5.134,3.37c-1.954,0.825-4.034,1.237-6.239,1.237c-2.207,0-4.292-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.155-3.37c-1.471-1.423-2.631-3.092-3.481-5.009c-0.85-1.917-1.275-3.98-1.275-6.189
+		c0-2.21,0.425-4.279,1.275-6.208s2.01-3.606,3.481-5.027c1.471-1.422,3.189-2.54,5.155-3.353c1.966-0.813,4.051-1.219,6.258-1.219
+		c2.205,0,4.285,0.407,6.239,1.219c1.953,0.813,3.664,1.937,5.134,3.371c1.473,1.434,2.632,3.111,3.481,5.027
+		C92.344,12.573,92.769,14.636,92.769,16.846z M86.865,16.846c0-1.396-0.268-2.711-0.801-3.943c-0.535-1.231-1.268-2.31-2.194-3.236
+		c-0.93-0.927-2.018-1.664-3.265-2.21c-1.245-0.545-2.567-0.818-3.967-0.818c-1.425,0-2.761,0.273-4.007,0.818
+		c-1.247,0.547-2.334,1.283-3.262,2.21c-0.929,0.927-1.66,2.005-2.195,3.236c-0.535,1.232-0.801,2.546-0.801,3.943
+		c0,1.37,0.267,2.679,0.801,3.923s1.266,2.329,2.195,3.256c0.928,0.927,2.015,1.663,3.262,2.209
+		c1.246,0.545,2.582,0.818,4.007,0.818c1.399,0,2.722-0.273,3.967-0.818c1.247-0.546,2.335-1.283,3.265-2.209
+		c0.927-0.927,1.659-2.012,2.194-3.256C86.598,19.525,86.865,18.216,86.865,16.846z"/>
+	<path fill="#FFFFFF" d="M123.953,32.081h-7.693l-12.188-13.483v13.483h-5.902V1.61h5.902v13.598L116.527,1.61h7.007l-13.749,14.968
+		L123.953,32.081z"/>
+	<path fill="#FFFFFF" d="M147.75,24.083c0,1.142-0.247,2.227-0.743,3.256c-0.495,1.028-1.188,1.936-2.076,2.722
+		c-0.89,0.787-1.943,1.416-3.161,1.886c-1.22,0.47-2.564,0.704-4.037,0.704c-1.321,0-2.508-0.076-3.563-0.228
+		c-1.054-0.153-2.043-0.395-2.97-0.725c-0.928-0.329-1.816-0.755-2.666-1.276c-0.852-0.519-1.732-1.147-2.646-1.885l4.188-4.228
+		c1.22,1.017,2.412,1.733,3.581,2.153c1.167,0.419,2.438,0.629,3.808,0.629c0.559,0,1.087-0.083,1.581-0.248
+		c0.495-0.165,0.928-0.386,1.296-0.667c0.367-0.279,0.659-0.609,0.876-0.99c0.215-0.381,0.323-0.799,0.323-1.256
+		c0-0.483-0.09-0.915-0.266-1.296c-0.18-0.38-0.496-0.749-0.954-1.104c-0.456-0.355-1.091-0.717-1.904-1.085
+		c-0.813-0.368-1.853-0.781-3.122-1.238c-1.118-0.405-2.191-0.869-3.219-1.389c-1.027-0.521-1.931-1.149-2.705-1.886
+		c-0.773-0.736-1.396-1.6-1.865-2.59c-0.471-0.991-0.704-2.158-0.704-3.504c0-1.295,0.259-2.488,0.78-3.58
+		c0.521-1.092,1.231-2.024,2.133-2.8c0.9-0.774,1.955-1.377,3.162-1.81C134.082,1.216,135.384,1,136.78,1
+		c2.336,0,4.303,0.305,5.904,0.915c1.598,0.609,3.021,1.499,4.267,2.666l-4.115,4.152c-0.762-0.736-1.612-1.301-2.552-1.695
+		c-0.939-0.393-2.045-0.591-3.313-0.591c-0.584,0-1.124,0.089-1.618,0.268c-0.496,0.178-0.921,0.412-1.276,0.704
+		c-0.357,0.292-0.642,0.635-0.856,1.028c-0.216,0.394-0.324,0.806-0.324,1.237c0,0.483,0.101,0.921,0.304,1.314
+		c0.203,0.394,0.546,0.774,1.028,1.142c0.482,0.369,1.125,0.737,1.924,1.105c0.799,0.369,1.796,0.769,2.991,1.2
+		c1.523,0.532,2.829,1.117,3.922,1.751c1.091,0.635,1.982,1.333,2.667,2.095c0.687,0.763,1.193,1.62,1.523,2.571
+		C147.584,21.815,147.75,22.889,147.75,24.083z"/>
+</g>
+<g>
+	<path fill="#FFFFFF" d="M8.561,48.51c-0.221-0.304-0.521-0.554-0.897-0.747c-0.378-0.194-0.803-0.291-1.274-0.291
+		c-0.253,0-0.507,0.034-0.764,0.102c-0.256,0.069-0.491,0.18-0.7,0.332c-0.21,0.151-0.381,0.341-0.512,0.565
+		s-0.197,0.496-0.197,0.811c0,0.305,0.061,0.558,0.181,0.762c0.121,0.207,0.283,0.378,0.488,0.521
+		c0.205,0.141,0.446,0.262,0.724,0.363c0.278,0.098,0.575,0.201,0.89,0.305c0.377,0.116,0.759,0.247,1.148,0.395
+		c0.389,0.146,0.74,0.34,1.055,0.582c0.315,0.241,0.571,0.542,0.771,0.904c0.199,0.363,0.298,0.822,0.298,1.377
+		c0,0.577-0.107,1.078-0.323,1.503c-0.214,0.425-0.5,0.777-0.857,1.055c-0.357,0.276-0.768,0.484-1.235,0.621
+		c-0.467,0.136-0.947,0.204-1.44,0.204c-0.702,0-1.381-0.136-2.037-0.408c-0.657-0.271-1.199-0.677-1.629-1.212l1.211-1.022
+		c0.262,0.387,0.614,0.703,1.054,0.943c0.44,0.242,0.917,0.361,1.432,0.361c0.262,0,0.525-0.035,0.787-0.108
+		c0.262-0.073,0.501-0.188,0.716-0.346c0.214-0.158,0.391-0.354,0.528-0.591c0.135-0.236,0.204-0.521,0.204-0.858
+		c0-0.336-0.07-0.615-0.212-0.843c-0.143-0.224-0.333-0.416-0.575-0.572c-0.241-0.158-0.522-0.292-0.842-0.402
+		c-0.319-0.11-0.659-0.223-1.015-0.338c-0.356-0.104-0.708-0.233-1.054-0.386c-0.346-0.153-0.656-0.346-0.929-0.582
+		c-0.272-0.235-0.493-0.527-0.66-0.874c-0.168-0.346-0.252-0.776-0.252-1.289c0-0.557,0.112-1.034,0.338-1.433
+		c0.226-0.398,0.519-0.729,0.882-0.991c0.361-0.262,0.771-0.454,1.227-0.574c0.457-0.121,0.916-0.181,1.377-0.181
+		c0.65,0,1.258,0.115,1.825,0.345c0.567,0.232,1.022,0.541,1.369,0.93L8.561,48.51z"/>
+	<path fill="#FFFFFF" d="M35.184,57.59h-1.73l4.832-11.143h1.416l4.783,11.143h-1.762l-1.133-2.738h-5.288L35.184,57.59z
+		 M36.852,53.482h4.17l-2.077-5.225L36.852,53.482z"/>
+	<path fill="#FFFFFF" d="M70.227,56.204H75.2v1.386h-6.531V46.447h1.559V56.204z"/>
+	<path fill="#FFFFFF" d="M110.227,52.003c0,0.86-0.149,1.65-0.449,2.368c-0.297,0.719-0.711,1.337-1.233,1.855
+		c-0.525,0.521-1.147,0.924-1.873,1.214c-0.725,0.288-1.511,0.432-2.359,0.432c-0.85,0-1.634-0.144-2.353-0.432
+		c-0.72-0.29-1.342-0.693-1.865-1.214c-0.524-0.519-0.934-1.137-1.227-1.855c-0.296-0.718-0.442-1.508-0.442-2.368
+		c0-0.871,0.146-1.665,0.442-2.384c0.293-0.718,0.702-1.332,1.227-1.842c0.523-0.509,1.146-0.904,1.865-1.188
+		c0.719-0.283,1.503-0.424,2.353-0.424c0.849,0,1.635,0.141,2.359,0.424c0.726,0.283,1.348,0.679,1.873,1.188
+		c0.522,0.51,0.937,1.124,1.233,1.842C110.077,50.338,110.227,51.132,110.227,52.003z M108.544,52.003
+		c0-0.608-0.1-1.183-0.299-1.724c-0.2-0.539-0.482-1.015-0.849-1.424c-0.37-0.408-0.813-0.731-1.333-0.968
+		c-0.518-0.236-1.103-0.354-1.752-0.354c-0.642,0-1.22,0.118-1.739,0.354c-0.521,0.236-0.96,0.56-1.322,0.968
+		c-0.363,0.409-0.643,0.885-0.841,1.424c-0.2,0.541-0.301,1.115-0.301,1.724c0,0.619,0.101,1.202,0.301,1.747
+		c0.198,0.545,0.481,1.021,0.848,1.425c0.368,0.403,0.809,0.72,1.323,0.951c0.514,0.23,1.09,0.346,1.731,0.346
+		c0.639,0,1.221-0.115,1.744-0.346c0.525-0.231,0.971-0.548,1.341-0.951c0.366-0.403,0.648-0.88,0.849-1.425
+		C108.444,53.205,108.544,52.622,108.544,52.003z"/>
+	<path fill="#FFFFFF" d="M142.956,55.354h0.033v-8.907h1.557V57.59h-1.966l-5.886-9.096h-0.032v9.096h-1.558V46.447h2.029
+		L142.956,55.354z"/>
+</g>
+</svg>
+
+    </div>
+    <div class="branch-badge">Kankarbagh, Patna</div>
+    <div class="title-group">
+      <h1 class="main-title">Complete Service Menu</h1>
+      <p class="subtitle">Experience Luxury Hair, Skin & Body Rituals</p>
+    </div>
+  </header>
+
+  <!-- Hero QR Card -->
+  <section class="hero-qr-section">
+    <div class="qr-card-container">
+      <div class="qr-card-badge">Instant PDF Menu</div>
+      
+      <div class="qr-frame">
+        <img src="qr_pdf_poster.png" alt="Looks Salon PDF Menu QR Code">
+      </div>
+
+      <div class="scan-cta">
+        <div class="scan-cta-title">Scan With Any Smartphone</div>
+        <div class="scan-cta-desc">Instant access to complete price list, services & rituals</div>
+      </div>
+    </div>
+
+    <!-- 3 Core Pillars -->
+    <div class="features-row">
+      <div class="feature-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><rect x="7" y="7" width="10" height="10" rx="1"></rect></svg>
+        <span class="feature-text">Open Phone Camera</span>
+      </div>
+      <div class="feature-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span class="feature-text">Instant PDF Download</span>
+      </div>
+      <div class="feature-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <span class="feature-text">100% Verified Rates</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Categories Overview -->
+  <section class="categories-preview">
+    <div class="cat-card">
+      <div class="cat-title">Hair & Styling</div>
+      <div class="cat-sub">Cut, Styling, Shave & Beard Grooming</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-title">Color & Texture</div>
+      <div class="cat-sub">Global Color, Highlights, Straightening & Keratin</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-title">Hair Spa & Scalp</div>
+      <div class="cat-sub">Kérastase, L'Oréal Rituals & Treatments</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-title">Skin & Body Care</div>
+      <div class="cat-sub">Luxury Facials, Cleanup, Mani-Pedi & Waxing</div>
+    </div>
+  </section>
+
+  <!-- Patna Location Card -->
+  <footer class="patna-footer-card">
+    <div class="pfc-left">
+      <div class="pfc-brand">
+        <span class="pfc-brand-title">LOOKS SALON</span>
+        <span class="pfc-branch-pill">Patna Branch</span>
+      </div>
+      <div class="pfc-address">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:1px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <div>
+          <strong>B-184, Vidya Enclave, P.C. Colony</strong><br>
+          Next to Lohiya Park, Kankarbagh, Patna &ndash; 800020
+        </div>
+      </div>
+    </div>
+
+    <div class="pfc-right">
+      <div class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span><strong>+91 77838 65018</strong> &nbsp;|&nbsp; <strong>+91 62877 61333</strong></span>
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Timings: <strong>9:00 AM &ndash; 9:00 PM</strong> (Open 7 Days)</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    LOOKS SALON &nbsp;&bull;&nbsp; KANKARBAGH PATNA &nbsp;&bull;&nbsp; WWW.LOOKSSALON.IN
+  </div>
+</div>
+
+</body>
+</html>
