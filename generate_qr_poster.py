@@ -1,15 +1,14 @@
 import qrcode
-import urllib.parse
 from PIL import Image, ImageDraw, ImageFont
 
-# URLs
-html_url = "https://variz19.github.io/looks-salon/service_menu.html"
-pdf_url = "https://variz19.github.io/looks-salon/Looks%20Salon%20-%20Complete%20Service%20Menu.pdf"
+# Live Vercel Production URLs
+html_url = "https://looks-salon-patna.vercel.app/service_menu.html"
+pdf_url = "https://looks-salon-patna.vercel.app/Looks%20Salon%20-%20Complete%20Service%20Menu.pdf"
 
-print(f"Target Web URL: {html_url}")
-print(f"Target PDF URL: {pdf_url}")
+print(f"Vercel Live Web URL: {html_url}")
+print(f"Vercel Live PDF URL: {pdf_url}")
 
-# 1. Generate standalone QR codes
+# 1. Generate standalone QR codes targeting Vercel
 qr_pdf = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=12, border=2)
 qr_pdf.add_data(pdf_url)
 qr_pdf.make(fit=True)
@@ -22,7 +21,7 @@ qr_html.make(fit=True)
 img_html_qr = qr_html.make_image(fill_color="#000000", back_color="#FFFFFF").convert('RGB')
 img_html_qr.save("standalone_qr_html.png")
 
-# 2. Create a combined luxury display poster image with both QR codes side-by-side
+# 2. Create combined luxury display poster image
 canvas_width = 1200
 canvas_height = 800
 background_color = (15, 15, 15)  # Dark sleek charcoal
@@ -33,11 +32,11 @@ gray_color = (180, 180, 180)
 canvas = Image.new("RGB", (canvas_width, canvas_height), background_color)
 draw = ImageDraw.Draw(canvas)
 
-# Draw elegant gold double border
+# Double gold border
 draw.rectangle([20, 20, canvas_width - 20, canvas_height - 20], outline=gold_color, width=3)
 draw.rectangle([28, 28, canvas_width - 28, canvas_height - 28], outline=gold_color, width=1)
 
-# Try loading fonts
+# Fonts
 try:
     title_font = ImageFont.truetype("arialbd.ttf", 42)
     subtitle_font = ImageFont.truetype("arial.ttf", 22)
@@ -66,7 +65,7 @@ canvas.paste(pdf_qr_resized, (left_cx - qr_size//2, card_top + 40))
 
 draw.text((left_cx, card_top + 400), "📄 PDF MENU", fill=gold_color, font=card_title_font, anchor="mm")
 draw.text((left_cx, card_top + 440), "Scan to Download / Print PDF Menu", fill=white_color, font=card_sub_font, anchor="mm")
-draw.text((left_cx, card_top + 475), "Direct File Access", fill=gray_color, font=card_sub_font, anchor="mm")
+draw.text((left_cx, card_top + 475), "Direct Vercel Host", fill=gray_color, font=card_sub_font, anchor="mm")
 
 # Right Card (Web HTML QR)
 right_cx = 870
@@ -78,4 +77,4 @@ draw.text((right_cx, card_top + 440), "Scan to Open Live Mobile Web Menu", fill=
 draw.text((right_cx, card_top + 475), "Optimized for Smartphones", fill=gray_color, font=card_sub_font, anchor="mm")
 
 canvas.save("LOOKS_SALON_QR_CODES.png")
-print("Saved LOOKS_SALON_QR_CODES.png successfully!")
+print("Saved Vercel-linked LOOKS_SALON_QR_CODES.png successfully!")
