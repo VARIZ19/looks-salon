@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Looks Salon - Complete Service Menu | Kankarbagh Patna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    background-color: #0b0b0d;
+    color: #e6e2dd;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    max-height: 297mm;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 20%, #171513 0%, #0c0c0e 65%, #070708 100%);
+    padding: 13mm 14mm 11mm 14mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Double Golden Luxury Border */
+  .page-border {
+    position: absolute;
+    top: 5mm;
+    left: 5mm;
+    right: 5mm;
+    bottom: 5mm;
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    pointer-events: none;
+  }
+  .page-border::after {
+    content: '';
+    position: absolute;
+    top: 1.8mm;
+    left: 1.8mm;
+    right: 1.8mm;
+    bottom: 1.8mm;
+    border: 1px solid rgba(212, 175, 55, 0.14);
+    pointer-events: none;
+  }
+
+  /* Header Bar */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+    padding-bottom: 2.8mm;
+    margin-bottom: 3.2mm;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-badge {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #d4af37;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    padding: 1px 9px;
+    letter-spacing: 1px;
+    background: rgba(212, 175, 55, 0.08);
+  }
+
+  .header-title-group h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fdfcfb;
+    line-height: 1.1;
+  }
+  .header-title-group p {
+    font-size: 0.62rem;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: #c5a059;
+    margin-top: 1.5px;
+    font-weight: 500;
+  }
+
+  .header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+  .header-logo-container {
+    width: 90px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .header-tag {
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9e9a93;
+    font-weight: 500;
+  }
+
+  /* Page Footer */
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 2.5mm;
+    margin-top: 2.5mm;
+    font-size: 0.6rem;
+    color: #8c8880;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-center {
+    color: #c5a059;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+
+  /* Content Grid */
+  .content-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3mm;
+    position: relative;
+    z-index: 2;
+  }
+
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    align-items: stretch;
+  }
+
+  /* Menu Cards */
+  .menu-card {
+    background: rgba(20, 18, 16, 0.72);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 4px;
+    padding: 3.2mm 4mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8mm;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  }
+
+  .card-header {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+    padding-bottom: 1.8mm;
+    margin-bottom: 0.8mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #d4af37;
+    white-space: nowrap;
+  }
+  .card-subtitle-badge {
+    font-size: 0.52rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #a8a49d;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #e5c07b;
+    margin-top: 1.4mm;
+    margin-bottom: 0.6mm;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.15);
+  }
+
+  /* Service Rows */
+  .service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35mm;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 0.69rem;
+    line-height: 1.25;
+  }
+  .service-name {
+    color: #e8e4df;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .service-dots {
+    flex: 1;
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.22);
+    margin: 0 5px;
+    transform: translateY(-2px);
+  }
+  .service-price {
+    color: #f1dfa8;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+  }
+
+  /* Dual price table for Kerastase */
+  .table-header-row {
+    display: flex;
+    align-items: baseline;
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: #c5a059;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 0.8mm;
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+    margin-bottom: 0.8mm;
+  }
+  .table-item-row {
+    display: flex;
+    align-items: baseline;
+    font-size: 0.67rem;
+    line-height: 1.35;
+  }
+  .col-name {
+    flex: 1;
+    color: #e8e4df;
+  }
+  .col-price {
+    width: 14mm;
+    text-align: right;
+    color: #f1dfa8;
+    font-weight: 600;
+  }
+
+  /* COVER PAGE STYLES */
+  .cover-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 16mm 10mm 12mm 10mm;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-top-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #d4af37;
+    display: inline-block;
+    padding: 3px 22px;
+    border-top: 1px solid rgba(212, 175, 55, 0.4);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+  }
+
+  .cover-center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3mm;
+    width: 100%;
+  }
+
+  .cover-logo-box {
+    width: 240px;
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3mm auto;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.9));
+  }
+
+  .cover-title-group {
+    margin-top: 2mm;
+  }
+  .cover-subtitle {
+    font-size: 0.82rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #c5a059;
+    font-weight: 600;
+    margin-bottom: 3.5mm;
+  }
+  .cover-main-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+    color: #ffffff;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.8);
+    margin-bottom: 4mm;
+  }
+  .cover-divider {
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 5mm auto 4mm auto;
+  }
+  .cover-services-list {
+    font-size: 0.82rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #dfdcd7;
+    font-weight: 500;
+  }
+
+  .cover-location-badge {
+    background: rgba(212, 175, 55, 0.07);
+    border: 1px solid rgba(212, 175, 55, 0.38);
+    padding: 5mm 10mm;
+    border-radius: 4px;
+    width: 140mm;
+    margin: 5mm auto 0 auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  }
+  .cover-branch-name {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.15rem;
+    letter-spacing: 3px;
+    color: #f6e6b8;
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+  }
+  .cover-branch-sub {
+    font-size: 0.68rem;
+    letter-spacing: 1.4px;
+    color: #b8b3ab;
+  }
+
+  .cover-footer-note {
+    font-size: 0.62rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8c8880;
+  }
+
+  /* CUSTOM PATNA FOOTER CARD (Page 5) */
+  .patna-footer-card {
+    background: linear-gradient(135deg, rgba(28, 25, 22, 0.92) 0%, rgba(16, 14, 13, 0.97) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 4px;
+    padding: 3mm 4.5mm;
+    margin-top: 1.5mm;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4mm;
+  }
+
+  .pfc-left {
+    flex: 1.1;
+    border-right: 1px solid rgba(212, 175, 55, 0.2);
+    padding-right: 3.5mm;
+  }
+  .pfc-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5mm;
+  }
+  .pfc-brand-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #f1dfa8;
+    text-transform: uppercase;
+  }
+  .pfc-branch-pill {
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: #d4af37;
+    color: #0b0a08;
+    padding: 1px 5px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .pfc-address {
+    font-size: 0.62rem;
+    line-height: 1.35;
+    color: #d1ceca;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .pfc-address-text strong {
+    color: #f8f6f4;
+  }
+
+  .pfc-middle {
+    flex: 1.1;
+    border-right: 1px solid rgba(212, 175, 55, 0.2);
+    padding-right: 3.5mm;
+  }
+  .pfc-contact-line {
+    font-size: 0.62rem;
+    line-height: 1.4;
+    color: #e0dcd6;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .pfc-hours {
+    margin-top: 1.5mm;
+    font-size: 0.58rem;
+    color: #b5b0a6;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .pfc-hours strong {
+    color: #e5c07b;
+  }
+
+  .pfc-right-qr {
+    flex: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3.5mm;
+  }
+
+  .qr-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 3px;
+    padding: 1.8mm 2.2mm 1.5mm 2.2mm;
+  }
+  .qr-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 2px;
+    margin-bottom: 1.2mm;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+  .qr-label {
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #f1dfa8;
+  }
+  .qr-sub {
+    font-size: 0.44rem;
+    letter-spacing: 0.5px;
+    color: #b8b3ab;
+    margin-top: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================== -->
+<!-- PAGE 1: COVER PAGE                         -->
+<!-- ========================================== -->
+<section class="page" id="page-1">
+  <div class="page-border"></div>
+
+  <div class="cover-container">
+    <div class="cover-top-tag">L O O K S &nbsp;&bull;&nbsp; S A L O N</div>
+
+    <div class="cover-center-content">
+      <div class="cover-logo-box">
+        
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 150 59" enable-background="new 0 0 150 59" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M22.856,32.081H2.251V1.647h6.018v24.72h14.587V32.081z"/>
+	<path fill="#FFFFFF" d="M56.212,16.846c0,2.184-0.424,4.241-1.274,6.169c-0.85,1.93-2.01,3.605-3.48,5.028
+		c-1.471,1.422-3.184,2.546-5.136,3.37c-1.954,0.825-4.033,1.237-6.239,1.237c-2.208,0-4.293-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.156-3.37c-1.47-1.423-2.63-3.092-3.48-5.009c-0.85-1.917-1.273-3.98-1.273-6.189
+		c0-2.21,0.424-4.279,1.273-6.208c0.85-1.93,2.01-3.606,3.48-5.027c1.472-1.422,3.19-2.54,5.156-3.353
+		c1.965-0.813,4.051-1.219,6.258-1.219c2.206,0,4.286,0.407,6.239,1.219c1.952,0.813,3.665,1.937,5.136,3.371
+		c1.471,1.434,2.63,3.111,3.48,5.027C55.788,12.573,56.212,14.636,56.212,16.846z M50.309,16.846c0-1.396-0.267-2.711-0.802-3.943
+		c-0.535-1.231-1.266-2.31-2.194-3.236c-0.928-0.927-2.016-1.664-3.262-2.21c-1.246-0.545-2.569-0.818-3.968-0.818
+		c-1.425,0-2.761,0.273-4.008,0.818c-1.246,0.547-2.333,1.283-3.261,2.21c-0.929,0.927-1.661,2.005-2.194,3.236
+		c-0.535,1.232-0.801,2.546-0.801,3.943c0,1.37,0.267,2.679,0.801,3.923c0.534,1.244,1.266,2.329,2.194,3.256
+		c0.928,0.927,2.016,1.663,3.261,2.209c1.247,0.545,2.583,0.818,4.008,0.818c1.399,0,2.723-0.273,3.968-0.818
+		c1.246-0.546,2.334-1.283,3.262-2.209c0.928-0.927,1.659-2.012,2.194-3.256C50.042,19.525,50.309,18.216,50.309,16.846z"/>
+	<path fill="#FFFFFF" d="M92.769,16.846c0,2.184-0.425,4.241-1.275,6.169c-0.85,1.93-2.009,3.605-3.481,5.028
+		c-1.47,1.422-3.181,2.546-5.134,3.37c-1.954,0.825-4.034,1.237-6.239,1.237c-2.207,0-4.292-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.155-3.37c-1.471-1.423-2.631-3.092-3.481-5.009c-0.85-1.917-1.275-3.98-1.275-6.189
+		c0-2.21,0.425-4.279,1.275-6.208s2.01-3.606,3.481-5.027c1.471-1.422,3.189-2.54,5.155-3.353c1.966-0.813,4.051-1.219,6.258-1.219
+		c2.205,0,4.285,0.407,6.239,1.219c1.953,0.813,3.664,1.937,5.134,3.371c1.473,1.434,2.632,3.111,3.481,5.027
+		C92.344,12.573,92.769,14.636,92.769,16.846z M86.865,16.846c0-1.396-0.268-2.711-0.801-3.943c-0.535-1.231-1.268-2.31-2.194-3.236
+		c-0.93-0.927-2.018-1.664-3.265-2.21c-1.245-0.545-2.567-0.818-3.967-0.818c-1.425,0-2.761,0.273-4.007,0.818
+		c-1.247,0.547-2.334,1.283-3.262,2.21c-0.929,0.927-1.66,2.005-2.195,3.236c-0.535,1.232-0.801,2.546-0.801,3.943
+		c0,1.37,0.267,2.679,0.801,3.923s1.266,2.329,2.195,3.256c0.928,0.927,2.015,1.663,3.262,2.209
+		c1.246,0.545,2.582,0.818,4.007,0.818c1.399,0,2.722-0.273,3.967-0.818c1.247-0.546,2.335-1.283,3.265-2.209
+		c0.927-0.927,1.659-2.012,2.194-3.256C86.598,19.525,86.865,18.216,86.865,16.846z"/>
+	<path fill="#FFFFFF" d="M123.953,32.081h-7.693l-12.188-13.483v13.483h-5.902V1.61h5.902v13.598L116.527,1.61h7.007l-13.749,14.968
+		L123.953,32.081z"/>
+	<path fill="#FFFFFF" d="M147.75,24.083c0,1.142-0.247,2.227-0.743,3.256c-0.495,1.028-1.188,1.936-2.076,2.722
+		c-0.89,0.787-1.943,1.416-3.161,1.886c-1.22,0.47-2.564,0.704-4.037,0.704c-1.321,0-2.508-0.076-3.563-0.228
+		c-1.054-0.153-2.043-0.395-2.97-0.725c-0.928-0.329-1.816-0.755-2.666-1.276c-0.852-0.519-1.732-1.147-2.646-1.885l4.188-4.228
+		c1.22,1.017,2.412,1.733,3.581,2.153c1.167,0.419,2.438,0.629,3.808,0.629c0.559,0,1.087-0.083,1.581-0.248
+		c0.495-0.165,0.928-0.386,1.296-0.667c0.367-0.279,0.659-0.609,0.876-0.99c0.215-0.381,0.323-0.799,0.323-1.256
+		c0-0.483-0.09-0.915-0.266-1.296c-0.18-0.38-0.496-0.749-0.954-1.104c-0.456-0.355-1.091-0.717-1.904-1.085
+		c-0.813-0.368-1.853-0.781-3.122-1.238c-1.118-0.405-2.191-0.869-3.219-1.389c-1.027-0.521-1.931-1.149-2.705-1.886
+		c-0.773-0.736-1.396-1.6-1.865-2.59c-0.471-0.991-0.704-2.158-0.704-3.504c0-1.295,0.259-2.488,0.78-3.58
+		c0.521-1.092,1.231-2.024,2.133-2.8c0.9-0.774,1.955-1.377,3.162-1.81C134.082,1.216,135.384,1,136.78,1
+		c2.336,0,4.303,0.305,5.904,0.915c1.598,0.609,3.021,1.499,4.267,2.666l-4.115,4.152c-0.762-0.736-1.612-1.301-2.552-1.695
+		c-0.939-0.393-2.045-0.591-3.313-0.591c-0.584,0-1.124,0.089-1.618,0.268c-0.496,0.178-0.921,0.412-1.276,0.704
+		c-0.357,0.292-0.642,0.635-0.856,1.028c-0.216,0.394-0.324,0.806-0.324,1.237c0,0.483,0.101,0.921,0.304,1.314
+		c0.203,0.394,0.546,0.774,1.028,1.142c0.482,0.369,1.125,0.737,1.924,1.105c0.799,0.369,1.796,0.769,2.991,1.2
+		c1.523,0.532,2.829,1.117,3.922,1.751c1.091,0.635,1.982,1.333,2.667,2.095c0.687,0.763,1.193,1.62,1.523,2.571
+		C147.584,21.815,147.75,22.889,147.75,24.083z"/>
+</g>
+<g>
+	<path fill="#FFFFFF" d="M8.561,48.51c-0.221-0.304-0.521-0.554-0.897-0.747c-0.378-0.194-0.803-0.291-1.274-0.291
+		c-0.253,0-0.507,0.034-0.764,0.102c-0.256,0.069-0.491,0.18-0.7,0.332c-0.21,0.151-0.381,0.341-0.512,0.565
+		s-0.197,0.496-0.197,0.811c0,0.305,0.061,0.558,0.181,0.762c0.121,0.207,0.283,0.378,0.488,0.521
+		c0.205,0.141,0.446,0.262,0.724,0.363c0.278,0.098,0.575,0.201,0.89,0.305c0.377,0.116,0.759,0.247,1.148,0.395
+		c0.389,0.146,0.74,0.34,1.055,0.582c0.315,0.241,0.571,0.542,0.771,0.904c0.199,0.363,0.298,0.822,0.298,1.377
+		c0,0.577-0.107,1.078-0.323,1.503c-0.214,0.425-0.5,0.777-0.857,1.055c-0.357,0.276-0.768,0.484-1.235,0.621
+		c-0.467,0.136-0.947,0.204-1.44,0.204c-0.702,0-1.381-0.136-2.037-0.408c-0.657-0.271-1.199-0.677-1.629-1.212l1.211-1.022
+		c0.262,0.387,0.614,0.703,1.054,0.943c0.44,0.242,0.917,0.361,1.432,0.361c0.262,0,0.525-0.035,0.787-0.108
+		c0.262-0.073,0.501-0.188,0.716-0.346c0.214-0.158,0.391-0.354,0.528-0.591c0.135-0.236,0.204-0.521,0.204-0.858
+		c0-0.336-0.07-0.615-0.212-0.843c-0.143-0.224-0.333-0.416-0.575-0.572c-0.241-0.158-0.522-0.292-0.842-0.402
+		c-0.319-0.11-0.659-0.223-1.015-0.338c-0.356-0.104-0.708-0.233-1.054-0.386c-0.346-0.153-0.656-0.346-0.929-0.582
+		c-0.272-0.235-0.493-0.527-0.66-0.874c-0.168-0.346-0.252-0.776-0.252-1.289c0-0.557,0.112-1.034,0.338-1.433
+		c0.226-0.398,0.519-0.729,0.882-0.991c0.361-0.262,0.771-0.454,1.227-0.574c0.457-0.121,0.916-0.181,1.377-0.181
+		c0.65,0,1.258,0.115,1.825,0.345c0.567,0.232,1.022,0.541,1.369,0.93L8.561,48.51z"/>
+	<path fill="#FFFFFF" d="M35.184,57.59h-1.73l4.832-11.143h1.416l4.783,11.143h-1.762l-1.133-2.738h-5.288L35.184,57.59z
+		 M36.852,53.482h4.17l-2.077-5.225L36.852,53.482z"/>
+	<path fill="#FFFFFF" d="M70.227,56.204H75.2v1.386h-6.531V46.447h1.559V56.204z"/>
+	<path fill="#FFFFFF" d="M110.227,52.003c0,0.86-0.149,1.65-0.449,2.368c-0.297,0.719-0.711,1.337-1.233,1.855
+		c-0.525,0.521-1.147,0.924-1.873,1.214c-0.725,0.288-1.511,0.432-2.359,0.432c-0.85,0-1.634-0.144-2.353-0.432
+		c-0.72-0.29-1.342-0.693-1.865-1.214c-0.524-0.519-0.934-1.137-1.227-1.855c-0.296-0.718-0.442-1.508-0.442-2.368
+		c0-0.871,0.146-1.665,0.442-2.384c0.293-0.718,0.702-1.332,1.227-1.842c0.523-0.509,1.146-0.904,1.865-1.188
+		c0.719-0.283,1.503-0.424,2.353-0.424c0.849,0,1.635,0.141,2.359,0.424c0.726,0.283,1.348,0.679,1.873,1.188
+		c0.522,0.51,0.937,1.124,1.233,1.842C110.077,50.338,110.227,51.132,110.227,52.003z M108.544,52.003
+		c0-0.608-0.1-1.183-0.299-1.724c-0.2-0.539-0.482-1.015-0.849-1.424c-0.37-0.408-0.813-0.731-1.333-0.968
+		c-0.518-0.236-1.103-0.354-1.752-0.354c-0.642,0-1.22,0.118-1.739,0.354c-0.521,0.236-0.96,0.56-1.322,0.968
+		c-0.363,0.409-0.643,0.885-0.841,1.424c-0.2,0.541-0.301,1.115-0.301,1.724c0,0.619,0.101,1.202,0.301,1.747
+		c0.198,0.545,0.481,1.021,0.848,1.425c0.368,0.403,0.809,0.72,1.323,0.951c0.514,0.23,1.09,0.346,1.731,0.346
+		c0.639,0,1.221-0.115,1.744-0.346c0.525-0.231,0.971-0.548,1.341-0.951c0.366-0.403,0.648-0.88,0.849-1.425
+		C108.444,53.205,108.544,52.622,108.544,52.003z"/>
+	<path fill="#FFFFFF" d="M142.956,55.354h0.033v-8.907h1.557V57.59h-1.966l-5.886-9.096h-0.032v9.096h-1.558V46.447h2.029
+		L142.956,55.354z"/>
+</g>
+</svg>
+
+      </div>
+
+      <div class="cover-title-group">
+        <div class="cover-subtitle">COMPLETE SERVICE MENU</div>
+        <h1 class="cover-main-title">The Full Experience</h1>
+        <div class="cover-divider"></div>
+        <div class="cover-services-list">HAIR &nbsp;&bull;&nbsp; SKIN &nbsp;&bull;&nbsp; SPA &nbsp;&bull;&nbsp; GROOMING</div>
+      </div>
+
+      <div class="cover-location-badge">
+        <div class="cover-branch-name">KANKARBAGH, PATNA</div>
+        <div class="cover-branch-sub">B-184, Vidya Enclave, P.C. Colony, Next to Lohiya Park</div>
+        <div class="cover-branch-sub" style="margin-top: 2mm; color: #d4af37; font-weight: 600; letter-spacing: 1.8px;">
+          Direct Bookings: +91 77838 65018 &nbsp;|&nbsp; +91 62877 61333
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer-note">PRICES IN INDIAN RUPEES (&#8377;) &nbsp;&bull;&nbsp; TAXES APPLICABLE &nbsp;&bull;&nbsp; SUBJECT TO CHANGE</div>
+  </div>
+</section>
+
+<!-- ========================================== -->
+<!-- PAGE 2: HAIR & GROOMING (HIM & HER)        -->
+<!-- ========================================== -->
+<section class="page" id="page-2">
+  <div class="page-border"></div>
+
+  <header class="page-header">
+    <div class="header-left">
+      <span class="header-badge">01</span>
+      <div class="header-title-group">
+        <h2>Hair & Grooming</h2>
+        <p>GENTLEMEN'S GROOMING & LADIES' STYLING</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-logo-container">
+        
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 150 59" enable-background="new 0 0 150 59" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M22.856,32.081H2.251V1.647h6.018v24.72h14.587V32.081z"/>
+	<path fill="#FFFFFF" d="M56.212,16.846c0,2.184-0.424,4.241-1.274,6.169c-0.85,1.93-2.01,3.605-3.48,5.028
+		c-1.471,1.422-3.184,2.546-5.136,3.37c-1.954,0.825-4.033,1.237-6.239,1.237c-2.208,0-4.293-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.156-3.37c-1.47-1.423-2.63-3.092-3.48-5.009c-0.85-1.917-1.273-3.98-1.273-6.189
+		c0-2.21,0.424-4.279,1.273-6.208c0.85-1.93,2.01-3.606,3.48-5.027c1.472-1.422,3.19-2.54,5.156-3.353
+		c1.965-0.813,4.051-1.219,6.258-1.219c2.206,0,4.286,0.407,6.239,1.219c1.952,0.813,3.665,1.937,5.136,3.371
+		c1.471,1.434,2.63,3.111,3.48,5.027C55.788,12.573,56.212,14.636,56.212,16.846z M50.309,16.846c0-1.396-0.267-2.711-0.802-3.943
+		c-0.535-1.231-1.266-2.31-2.194-3.236c-0.928-0.927-2.016-1.664-3.262-2.21c-1.246-0.545-2.569-0.818-3.968-0.818
+		c-1.425,0-2.761,0.273-4.008,0.818c-1.246,0.547-2.333,1.283-3.261,2.21c-0.929,0.927-1.661,2.005-2.194,3.236
+		c-0.535,1.232-0.801,2.546-0.801,3.943c0,1.37,0.267,2.679,0.801,3.923c0.534,1.244,1.266,2.329,2.194,3.256
+		c0.928,0.927,2.016,1.663,3.261,2.209c1.247,0.545,2.583,0.818,4.008,0.818c1.399,0,2.723-0.273,3.968-0.818
+		c1.246-0.546,2.334-1.283,3.262-2.209c0.928-0.927,1.659-2.012,2.194-3.256C50.042,19.525,50.309,18.216,50.309,16.846z"/>
+	<path fill="#FFFFFF" d="M92.769,16.846c0,2.184-0.425,4.241-1.275,6.169c-0.85,1.93-2.009,3.605-3.481,5.028
+		c-1.47,1.422-3.181,2.546-5.134,3.37c-1.954,0.825-4.034,1.237-6.239,1.237c-2.207,0-4.292-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.155-3.37c-1.471-1.423-2.631-3.092-3.481-5.009c-0.85-1.917-1.275-3.98-1.275-6.189
+		c0-2.21,0.425-4.279,1.275-6.208s2.01-3.606,3.481-5.027c1.471-1.422,3.189-2.54,5.155-3.353c1.966-0.813,4.051-1.219,6.258-1.219
+		c2.205,0,4.285,0.407,6.239,1.219c1.953,0.813,3.664,1.937,5.134,3.371c1.473,1.434,2.632,3.111,3.481,5.027
+		C92.344,12.573,92.769,14.636,92.769,16.846z M86.865,16.846c0-1.396-0.268-2.711-0.801-3.943c-0.535-1.231-1.268-2.31-2.194-3.236
+		c-0.93-0.927-2.018-1.664-3.265-2.21c-1.245-0.545-2.567-0.818-3.967-0.818c-1.425,0-2.761,0.273-4.007,0.818
+		c-1.247,0.547-2.334,1.283-3.262,2.21c-0.929,0.927-1.66,2.005-2.195,3.236c-0.535,1.232-0.801,2.546-0.801,3.943
+		c0,1.37,0.267,2.679,0.801,3.923s1.266,2.329,2.195,3.256c0.928,0.927,2.015,1.663,3.262,2.209
+		c1.246,0.545,2.582,0.818,4.007,0.818c1.399,0,2.722-0.273,3.967-0.818c1.247-0.546,2.335-1.283,3.265-2.209
+		c0.927-0.927,1.659-2.012,2.194-3.256C86.598,19.525,86.865,18.216,86.865,16.846z"/>
+	<path fill="#FFFFFF" d="M123.953,32.081h-7.693l-12.188-13.483v13.483h-5.902V1.61h5.902v13.598L116.527,1.61h7.007l-13.749,14.968
+		L123.953,32.081z"/>
+	<path fill="#FFFFFF" d="M147.75,24.083c0,1.142-0.247,2.227-0.743,3.256c-0.495,1.028-1.188,1.936-2.076,2.722
+		c-0.89,0.787-1.943,1.416-3.161,1.886c-1.22,0.47-2.564,0.704-4.037,0.704c-1.321,0-2.508-0.076-3.563-0.228
+		c-1.054-0.153-2.043-0.395-2.97-0.725c-0.928-0.329-1.816-0.755-2.666-1.276c-0.852-0.519-1.732-1.147-2.646-1.885l4.188-4.228
+		c1.22,1.017,2.412,1.733,3.581,2.153c1.167,0.419,2.438,0.629,3.808,0.629c0.559,0,1.087-0.083,1.581-0.248
+		c0.495-0.165,0.928-0.386,1.296-0.667c0.367-0.279,0.659-0.609,0.876-0.99c0.215-0.381,0.323-0.799,0.323-1.256
+		c0-0.483-0.09-0.915-0.266-1.296c-0.18-0.38-0.496-0.749-0.954-1.104c-0.456-0.355-1.091-0.717-1.904-1.085
+		c-0.813-0.368-1.853-0.781-3.122-1.238c-1.118-0.405-2.191-0.869-3.219-1.389c-1.027-0.521-1.931-1.149-2.705-1.886
+		c-0.773-0.736-1.396-1.6-1.865-2.59c-0.471-0.991-0.704-2.158-0.704-3.504c0-1.295,0.259-2.488,0.78-3.58
+		c0.521-1.092,1.231-2.024,2.133-2.8c0.9-0.774,1.955-1.377,3.162-1.81C134.082,1.216,135.384,1,136.78,1
+		c2.336,0,4.303,0.305,5.904,0.915c1.598,0.609,3.021,1.499,4.267,2.666l-4.115,4.152c-0.762-0.736-1.612-1.301-2.552-1.695
+		c-0.939-0.393-2.045-0.591-3.313-0.591c-0.584,0-1.124,0.089-1.618,0.268c-0.496,0.178-0.921,0.412-1.276,0.704
+		c-0.357,0.292-0.642,0.635-0.856,1.028c-0.216,0.394-0.324,0.806-0.324,1.237c0,0.483,0.101,0.921,0.304,1.314
+		c0.203,0.394,0.546,0.774,1.028,1.142c0.482,0.369,1.125,0.737,1.924,1.105c0.799,0.369,1.796,0.769,2.991,1.2
+		c1.523,0.532,2.829,1.117,3.922,1.751c1.091,0.635,1.982,1.333,2.667,2.095c0.687,0.763,1.193,1.62,1.523,2.571
+		C147.584,21.815,147.75,22.889,147.75,24.083z"/>
+</g>
+<g>
+	<path fill="#FFFFFF" d="M8.561,48.51c-0.221-0.304-0.521-0.554-0.897-0.747c-0.378-0.194-0.803-0.291-1.274-0.291
+		c-0.253,0-0.507,0.034-0.764,0.102c-0.256,0.069-0.491,0.18-0.7,0.332c-0.21,0.151-0.381,0.341-0.512,0.565
+		s-0.197,0.496-0.197,0.811c0,0.305,0.061,0.558,0.181,0.762c0.121,0.207,0.283,0.378,0.488,0.521
+		c0.205,0.141,0.446,0.262,0.724,0.363c0.278,0.098,0.575,0.201,0.89,0.305c0.377,0.116,0.759,0.247,1.148,0.395
+		c0.389,0.146,0.74,0.34,1.055,0.582c0.315,0.241,0.571,0.542,0.771,0.904c0.199,0.363,0.298,0.822,0.298,1.377
+		c0,0.577-0.107,1.078-0.323,1.503c-0.214,0.425-0.5,0.777-0.857,1.055c-0.357,0.276-0.768,0.484-1.235,0.621
+		c-0.467,0.136-0.947,0.204-1.44,0.204c-0.702,0-1.381-0.136-2.037-0.408c-0.657-0.271-1.199-0.677-1.629-1.212l1.211-1.022
+		c0.262,0.387,0.614,0.703,1.054,0.943c0.44,0.242,0.917,0.361,1.432,0.361c0.262,0,0.525-0.035,0.787-0.108
+		c0.262-0.073,0.501-0.188,0.716-0.346c0.214-0.158,0.391-0.354,0.528-0.591c0.135-0.236,0.204-0.521,0.204-0.858
+		c0-0.336-0.07-0.615-0.212-0.843c-0.143-0.224-0.333-0.416-0.575-0.572c-0.241-0.158-0.522-0.292-0.842-0.402
+		c-0.319-0.11-0.659-0.223-1.015-0.338c-0.356-0.104-0.708-0.233-1.054-0.386c-0.346-0.153-0.656-0.346-0.929-0.582
+		c-0.272-0.235-0.493-0.527-0.66-0.874c-0.168-0.346-0.252-0.776-0.252-1.289c0-0.557,0.112-1.034,0.338-1.433
+		c0.226-0.398,0.519-0.729,0.882-0.991c0.361-0.262,0.771-0.454,1.227-0.574c0.457-0.121,0.916-0.181,1.377-0.181
+		c0.65,0,1.258,0.115,1.825,0.345c0.567,0.232,1.022,0.541,1.369,0.93L8.561,48.51z"/>
+	<path fill="#FFFFFF" d="M35.184,57.59h-1.73l4.832-11.143h1.416l4.783,11.143h-1.762l-1.133-2.738h-5.288L35.184,57.59z
+		 M36.852,53.482h4.17l-2.077-5.225L36.852,53.482z"/>
+	<path fill="#FFFFFF" d="M70.227,56.204H75.2v1.386h-6.531V46.447h1.559V56.204z"/>
+	<path fill="#FFFFFF" d="M110.227,52.003c0,0.86-0.149,1.65-0.449,2.368c-0.297,0.719-0.711,1.337-1.233,1.855
+		c-0.525,0.521-1.147,0.924-1.873,1.214c-0.725,0.288-1.511,0.432-2.359,0.432c-0.85,0-1.634-0.144-2.353-0.432
+		c-0.72-0.29-1.342-0.693-1.865-1.214c-0.524-0.519-0.934-1.137-1.227-1.855c-0.296-0.718-0.442-1.508-0.442-2.368
+		c0-0.871,0.146-1.665,0.442-2.384c0.293-0.718,0.702-1.332,1.227-1.842c0.523-0.509,1.146-0.904,1.865-1.188
+		c0.719-0.283,1.503-0.424,2.353-0.424c0.849,0,1.635,0.141,2.359,0.424c0.726,0.283,1.348,0.679,1.873,1.188
+		c0.522,0.51,0.937,1.124,1.233,1.842C110.077,50.338,110.227,51.132,110.227,52.003z M108.544,52.003
+		c0-0.608-0.1-1.183-0.299-1.724c-0.2-0.539-0.482-1.015-0.849-1.424c-0.37-0.408-0.813-0.731-1.333-0.968
+		c-0.518-0.236-1.103-0.354-1.752-0.354c-0.642,0-1.22,0.118-1.739,0.354c-0.521,0.236-0.96,0.56-1.322,0.968
+		c-0.363,0.409-0.643,0.885-0.841,1.424c-0.2,0.541-0.301,1.115-0.301,1.724c0,0.619,0.101,1.202,0.301,1.747
+		c0.198,0.545,0.481,1.021,0.848,1.425c0.368,0.403,0.809,0.72,1.323,0.951c0.514,0.23,1.09,0.346,1.731,0.346
+		c0.639,0,1.221-0.115,1.744-0.346c0.525-0.231,0.971-0.548,1.341-0.951c0.366-0.403,0.648-0.88,0.849-1.425
+		C108.444,53.205,108.544,52.622,108.544,52.003z"/>
+	<path fill="#FFFFFF" d="M142.956,55.354h0.033v-8.907h1.557V57.59h-1.966l-5.886-9.096h-0.032v9.096h-1.558V46.447h2.029
+		L142.956,55.354z"/>
+</g>
+</svg>
+
+      </div>
+      <span class="header-tag">KANKARBAGH, PATNA</span>
+    </div>
+  </header>
+
+  <div class="content-body">
+    <div class="grid-2col">
+      <!-- COLUMN 1: FOR HIM -->
+      <div class="menu-card">
+        <div class="card-header">
+          <span class="card-title">For Him</span>
+          <span class="card-subtitle-badge">Gentlemen</span>
+        </div>
+
+        <div class="section-label">Cut & Care</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Cut</span><span class="service-dots"></span><span class="service-price">₹500</span></div>
+          <div class="service-item"><span class="service-name">Child Hair Cut (0–5)</span><span class="service-dots"></span><span class="service-price">₹400</span></div>
+          <div class="service-item"><span class="service-name">Creative Hair Cut</span><span class="service-dots"></span><span class="service-price">₹550</span></div>
+        </div>
+
+        <div class="section-label">Beard Care</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Shave</span><span class="service-dots"></span><span class="service-price">₹300</span></div>
+          <div class="service-item"><span class="service-name">Beard Trim</span><span class="service-dots"></span><span class="service-price">₹400</span></div>
+          <div class="service-item"><span class="service-name">Beard Styling</span><span class="service-dots"></span><span class="service-price">₹500</span></div>
+          <div class="service-item"><span class="service-name">Beard Colour</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+        </div>
+
+        <div class="section-label">Hair Care</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Wash</span><span class="service-dots"></span><span class="service-price">₹150</span></div>
+          <div class="service-item"><span class="service-name">Conditioner</span><span class="service-dots"></span><span class="service-price">₹150</span></div>
+          <div class="service-item"><span class="service-name">Wash & Conditioner</span><span class="service-dots"></span><span class="service-price">₹300</span></div>
+          <div class="service-item"><span class="service-name">Hair Wash (K)</span><span class="service-dots"></span><span class="service-price">₹250</span></div>
+          <div class="service-item"><span class="service-name">Hair Wash & Condition (K)</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+          <div class="service-item"><span class="service-name">Head Massage (30 mins)</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+        </div>
+
+        <div class="section-label">Hair Colour</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Colour</span><span class="service-dots"></span><span class="service-price">₹1,300</span></div>
+          <div class="service-item"><span class="service-name">Hair Colour – Ammonia Free</span><span class="service-dots"></span><span class="service-price">₹1,400</span></div>
+          <div class="service-item"><span class="service-name">Hi-Lites</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+        </div>
+
+        <div class="section-label">Hair Texture</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Straightening</span><span class="service-dots"></span><span class="service-price">₹4,000</span></div>
+          <div class="service-item"><span class="service-name">Smoothening</span><span class="service-dots"></span><span class="service-price">₹4,000</span></div>
+          <div class="service-item"><span class="service-name">Rebonding</span><span class="service-dots"></span><span class="service-price">₹4,000</span></div>
+          <div class="service-item"><span class="service-name">Keratine</span><span class="service-dots"></span><span class="service-price">₹4,000</span></div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: FOR HER -->
+      <div class="menu-card">
+        <div class="card-header">
+          <span class="card-title">For Her</span>
+          <span class="card-subtitle-badge">Ladies</span>
+        </div>
+
+        <div class="section-label">Cut & Style</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Cut</span><span class="service-dots"></span><span class="service-price">₹900</span></div>
+          <div class="service-item"><span class="service-name">Hair Cut – Child (0–5)</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Creative Hair Cut</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+        </div>
+
+        <div class="section-label">Hair Care</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Wash</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Conditioner</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Hair Wash & Conditioner</span><span class="service-dots"></span><span class="service-price">₹400</span></div>
+          <div class="service-item"><span class="service-name">Hair Wash (K)</span><span class="service-dots"></span><span class="service-price">₹350</span></div>
+          <div class="service-item"><span class="service-name">Conditioner (K)</span><span class="service-dots"></span><span class="service-price">₹350</span></div>
+          <div class="service-item"><span class="service-name">Hair Wash & Conditioner (K)</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+          <div class="service-item"><span class="service-name">Head Massage (30 mins)</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+        </div>
+
+        <div class="section-label">Hair Styling</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Blow Dry Straight</span><span class="service-dots"></span><span class="service-price">₹500</span></div>
+          <div class="service-item"><span class="service-name">Ironing</span><span class="service-dots"></span><span class="service-price">₹800</span></div>
+          <div class="service-item"><span class="service-name">Tong Curls</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+          <div class="service-item"><span class="service-name">Hair Set & Upstyle</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+        </div>
+
+        <div class="section-label">Hair Colour</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Root Touch Up</span><span class="service-dots"></span><span class="service-price">₹1,400</span></div>
+          <div class="service-item"><span class="service-name">Root Touch Up – Ammonia Free</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Global Hair Colour</span><span class="service-dots"></span><span class="service-price">₹5,000</span></div>
+          <div class="service-item"><span class="service-name">Global Colour w/ Bond Prot.</span><span class="service-dots"></span><span class="service-price">₹6,000</span></div>
+          <div class="service-item"><span class="service-name">Hi-Lites</span><span class="service-dots"></span><span class="service-price">₹6,500</span></div>
+          <div class="service-item"><span class="service-name">Balayage</span><span class="service-dots"></span><span class="service-price">₹6,500</span></div>
+          <div class="service-item"><span class="service-name">French Balayage</span><span class="service-dots"></span><span class="service-price">₹7,500</span></div>
+        </div>
+
+        <div class="section-label">Hair Texture</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Smoothening</span><span class="service-dots"></span><span class="service-price">₹7,000</span></div>
+          <div class="service-item"><span class="service-name">Keratin Treatment</span><span class="service-dots"></span><span class="service-price">₹7,000</span></div>
+          <div class="service-item"><span class="service-name">Botox</span><span class="service-dots"></span><span class="service-price">₹7,000</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span>LOOKS SALON &nbsp;&bull;&nbsp; COMPLETE SERVICE MENU</span>
+    <span class="footer-center">L O O K S &nbsp;&bull;&nbsp; S A L O N</span>
+    <span>PAGE 02</span>
+  </footer>
+</section>
+
+<!-- ========================================== -->
+<!-- PAGE 3: HAIR RITUALS & KÉRASTASE PARIS     -->
+<!-- ========================================== -->
+<section class="page" id="page-3">
+  <div class="page-border"></div>
+
+  <header class="page-header">
+    <div class="header-left">
+      <span class="header-badge">02</span>
+      <div class="header-title-group">
+        <h2>Hair Rituals & Kérastase</h2>
+        <p>RESTORATIVE SPA & SIGNATURE DIAGNOSTIC CARE</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-logo-container">
+        
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 150 59" enable-background="new 0 0 150 59" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M22.856,32.081H2.251V1.647h6.018v24.72h14.587V32.081z"/>
+	<path fill="#FFFFFF" d="M56.212,16.846c0,2.184-0.424,4.241-1.274,6.169c-0.85,1.93-2.01,3.605-3.48,5.028
+		c-1.471,1.422-3.184,2.546-5.136,3.37c-1.954,0.825-4.033,1.237-6.239,1.237c-2.208,0-4.293-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.156-3.37c-1.47-1.423-2.63-3.092-3.48-5.009c-0.85-1.917-1.273-3.98-1.273-6.189
+		c0-2.21,0.424-4.279,1.273-6.208c0.85-1.93,2.01-3.606,3.48-5.027c1.472-1.422,3.19-2.54,5.156-3.353
+		c1.965-0.813,4.051-1.219,6.258-1.219c2.206,0,4.286,0.407,6.239,1.219c1.952,0.813,3.665,1.937,5.136,3.371
+		c1.471,1.434,2.63,3.111,3.48,5.027C55.788,12.573,56.212,14.636,56.212,16.846z M50.309,16.846c0-1.396-0.267-2.711-0.802-3.943
+		c-0.535-1.231-1.266-2.31-2.194-3.236c-0.928-0.927-2.016-1.664-3.262-2.21c-1.246-0.545-2.569-0.818-3.968-0.818
+		c-1.425,0-2.761,0.273-4.008,0.818c-1.246,0.547-2.333,1.283-3.261,2.21c-0.929,0.927-1.661,2.005-2.194,3.236
+		c-0.535,1.232-0.801,2.546-0.801,3.943c0,1.37,0.267,2.679,0.801,3.923c0.534,1.244,1.266,2.329,2.194,3.256
+		c0.928,0.927,2.016,1.663,3.261,2.209c1.247,0.545,2.583,0.818,4.008,0.818c1.399,0,2.723-0.273,3.968-0.818
+		c1.246-0.546,2.334-1.283,3.262-2.209c0.928-0.927,1.659-2.012,2.194-3.256C50.042,19.525,50.309,18.216,50.309,16.846z"/>
+	<path fill="#FFFFFF" d="M92.769,16.846c0,2.184-0.425,4.241-1.275,6.169c-0.85,1.93-2.009,3.605-3.481,5.028
+		c-1.47,1.422-3.181,2.546-5.134,3.37c-1.954,0.825-4.034,1.237-6.239,1.237c-2.207,0-4.292-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.155-3.37c-1.471-1.423-2.631-3.092-3.481-5.009c-0.85-1.917-1.275-3.98-1.275-6.189
+		c0-2.21,0.425-4.279,1.275-6.208s2.01-3.606,3.481-5.027c1.471-1.422,3.189-2.54,5.155-3.353c1.966-0.813,4.051-1.219,6.258-1.219
+		c2.205,0,4.285,0.407,6.239,1.219c1.953,0.813,3.664,1.937,5.134,3.371c1.473,1.434,2.632,3.111,3.481,5.027
+		C92.344,12.573,92.769,14.636,92.769,16.846z M86.865,16.846c0-1.396-0.268-2.711-0.801-3.943c-0.535-1.231-1.268-2.31-2.194-3.236
+		c-0.93-0.927-2.018-1.664-3.265-2.21c-1.245-0.545-2.567-0.818-3.967-0.818c-1.425,0-2.761,0.273-4.007,0.818
+		c-1.247,0.547-2.334,1.283-3.262,2.21c-0.929,0.927-1.66,2.005-2.195,3.236c-0.535,1.232-0.801,2.546-0.801,3.943
+		c0,1.37,0.267,2.679,0.801,3.923s1.266,2.329,2.195,3.256c0.928,0.927,2.015,1.663,3.262,2.209
+		c1.246,0.545,2.582,0.818,4.007,0.818c1.399,0,2.722-0.273,3.967-0.818c1.247-0.546,2.335-1.283,3.265-2.209
+		c0.927-0.927,1.659-2.012,2.194-3.256C86.598,19.525,86.865,18.216,86.865,16.846z"/>
+	<path fill="#FFFFFF" d="M123.953,32.081h-7.693l-12.188-13.483v13.483h-5.902V1.61h5.902v13.598L116.527,1.61h7.007l-13.749,14.968
+		L123.953,32.081z"/>
+	<path fill="#FFFFFF" d="M147.75,24.083c0,1.142-0.247,2.227-0.743,3.256c-0.495,1.028-1.188,1.936-2.076,2.722
+		c-0.89,0.787-1.943,1.416-3.161,1.886c-1.22,0.47-2.564,0.704-4.037,0.704c-1.321,0-2.508-0.076-3.563-0.228
+		c-1.054-0.153-2.043-0.395-2.97-0.725c-0.928-0.329-1.816-0.755-2.666-1.276c-0.852-0.519-1.732-1.147-2.646-1.885l4.188-4.228
+		c1.22,1.017,2.412,1.733,3.581,2.153c1.167,0.419,2.438,0.629,3.808,0.629c0.559,0,1.087-0.083,1.581-0.248
+		c0.495-0.165,0.928-0.386,1.296-0.667c0.367-0.279,0.659-0.609,0.876-0.99c0.215-0.381,0.323-0.799,0.323-1.256
+		c0-0.483-0.09-0.915-0.266-1.296c-0.18-0.38-0.496-0.749-0.954-1.104c-0.456-0.355-1.091-0.717-1.904-1.085
+		c-0.813-0.368-1.853-0.781-3.122-1.238c-1.118-0.405-2.191-0.869-3.219-1.389c-1.027-0.521-1.931-1.149-2.705-1.886
+		c-0.773-0.736-1.396-1.6-1.865-2.59c-0.471-0.991-0.704-2.158-0.704-3.504c0-1.295,0.259-2.488,0.78-3.58
+		c0.521-1.092,1.231-2.024,2.133-2.8c0.9-0.774,1.955-1.377,3.162-1.81C134.082,1.216,135.384,1,136.78,1
+		c2.336,0,4.303,0.305,5.904,0.915c1.598,0.609,3.021,1.499,4.267,2.666l-4.115,4.152c-0.762-0.736-1.612-1.301-2.552-1.695
+		c-0.939-0.393-2.045-0.591-3.313-0.591c-0.584,0-1.124,0.089-1.618,0.268c-0.496,0.178-0.921,0.412-1.276,0.704
+		c-0.357,0.292-0.642,0.635-0.856,1.028c-0.216,0.394-0.324,0.806-0.324,1.237c0,0.483,0.101,0.921,0.304,1.314
+		c0.203,0.394,0.546,0.774,1.028,1.142c0.482,0.369,1.125,0.737,1.924,1.105c0.799,0.369,1.796,0.769,2.991,1.2
+		c1.523,0.532,2.829,1.117,3.922,1.751c1.091,0.635,1.982,1.333,2.667,2.095c0.687,0.763,1.193,1.62,1.523,2.571
+		C147.584,21.815,147.75,22.889,147.75,24.083z"/>
+</g>
+<g>
+	<path fill="#FFFFFF" d="M8.561,48.51c-0.221-0.304-0.521-0.554-0.897-0.747c-0.378-0.194-0.803-0.291-1.274-0.291
+		c-0.253,0-0.507,0.034-0.764,0.102c-0.256,0.069-0.491,0.18-0.7,0.332c-0.21,0.151-0.381,0.341-0.512,0.565
+		s-0.197,0.496-0.197,0.811c0,0.305,0.061,0.558,0.181,0.762c0.121,0.207,0.283,0.378,0.488,0.521
+		c0.205,0.141,0.446,0.262,0.724,0.363c0.278,0.098,0.575,0.201,0.89,0.305c0.377,0.116,0.759,0.247,1.148,0.395
+		c0.389,0.146,0.74,0.34,1.055,0.582c0.315,0.241,0.571,0.542,0.771,0.904c0.199,0.363,0.298,0.822,0.298,1.377
+		c0,0.577-0.107,1.078-0.323,1.503c-0.214,0.425-0.5,0.777-0.857,1.055c-0.357,0.276-0.768,0.484-1.235,0.621
+		c-0.467,0.136-0.947,0.204-1.44,0.204c-0.702,0-1.381-0.136-2.037-0.408c-0.657-0.271-1.199-0.677-1.629-1.212l1.211-1.022
+		c0.262,0.387,0.614,0.703,1.054,0.943c0.44,0.242,0.917,0.361,1.432,0.361c0.262,0,0.525-0.035,0.787-0.108
+		c0.262-0.073,0.501-0.188,0.716-0.346c0.214-0.158,0.391-0.354,0.528-0.591c0.135-0.236,0.204-0.521,0.204-0.858
+		c0-0.336-0.07-0.615-0.212-0.843c-0.143-0.224-0.333-0.416-0.575-0.572c-0.241-0.158-0.522-0.292-0.842-0.402
+		c-0.319-0.11-0.659-0.223-1.015-0.338c-0.356-0.104-0.708-0.233-1.054-0.386c-0.346-0.153-0.656-0.346-0.929-0.582
+		c-0.272-0.235-0.493-0.527-0.66-0.874c-0.168-0.346-0.252-0.776-0.252-1.289c0-0.557,0.112-1.034,0.338-1.433
+		c0.226-0.398,0.519-0.729,0.882-0.991c0.361-0.262,0.771-0.454,1.227-0.574c0.457-0.121,0.916-0.181,1.377-0.181
+		c0.65,0,1.258,0.115,1.825,0.345c0.567,0.232,1.022,0.541,1.369,0.93L8.561,48.51z"/>
+	<path fill="#FFFFFF" d="M35.184,57.59h-1.73l4.832-11.143h1.416l4.783,11.143h-1.762l-1.133-2.738h-5.288L35.184,57.59z
+		 M36.852,53.482h4.17l-2.077-5.225L36.852,53.482z"/>
+	<path fill="#FFFFFF" d="M70.227,56.204H75.2v1.386h-6.531V46.447h1.559V56.204z"/>
+	<path fill="#FFFFFF" d="M110.227,52.003c0,0.86-0.149,1.65-0.449,2.368c-0.297,0.719-0.711,1.337-1.233,1.855
+		c-0.525,0.521-1.147,0.924-1.873,1.214c-0.725,0.288-1.511,0.432-2.359,0.432c-0.85,0-1.634-0.144-2.353-0.432
+		c-0.72-0.29-1.342-0.693-1.865-1.214c-0.524-0.519-0.934-1.137-1.227-1.855c-0.296-0.718-0.442-1.508-0.442-2.368
+		c0-0.871,0.146-1.665,0.442-2.384c0.293-0.718,0.702-1.332,1.227-1.842c0.523-0.509,1.146-0.904,1.865-1.188
+		c0.719-0.283,1.503-0.424,2.353-0.424c0.849,0,1.635,0.141,2.359,0.424c0.726,0.283,1.348,0.679,1.873,1.188
+		c0.522,0.51,0.937,1.124,1.233,1.842C110.077,50.338,110.227,51.132,110.227,52.003z M108.544,52.003
+		c0-0.608-0.1-1.183-0.299-1.724c-0.2-0.539-0.482-1.015-0.849-1.424c-0.37-0.408-0.813-0.731-1.333-0.968
+		c-0.518-0.236-1.103-0.354-1.752-0.354c-0.642,0-1.22,0.118-1.739,0.354c-0.521,0.236-0.96,0.56-1.322,0.968
+		c-0.363,0.409-0.643,0.885-0.841,1.424c-0.2,0.541-0.301,1.115-0.301,1.724c0,0.619,0.101,1.202,0.301,1.747
+		c0.198,0.545,0.481,1.021,0.848,1.425c0.368,0.403,0.809,0.72,1.323,0.951c0.514,0.23,1.09,0.346,1.731,0.346
+		c0.639,0,1.221-0.115,1.744-0.346c0.525-0.231,0.971-0.548,1.341-0.951c0.366-0.403,0.648-0.88,0.849-1.425
+		C108.444,53.205,108.544,52.622,108.544,52.003z"/>
+	<path fill="#FFFFFF" d="M142.956,55.354h0.033v-8.907h1.557V57.59h-1.966l-5.886-9.096h-0.032v9.096h-1.558V46.447h2.029
+		L142.956,55.354z"/>
+</g>
+</svg>
+
+      </div>
+      <span class="header-tag">KANKARBAGH, PATNA</span>
+    </div>
+  </header>
+
+  <div class="content-body">
+    <div class="grid-2col">
+      <!-- COLUMN 1: RESTORATIVE RITUALS (GENTS & LADIES) -->
+      <div class="menu-card">
+        <div class="card-header">
+          <span class="card-title">Hair & Scalp</span>
+          <span class="card-subtitle-badge">Restorative</span>
+        </div>
+
+        <div class="section-label">Gents Rituals</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Spa</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Dry Damaged Hair</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Frizzy & Unruly Hair</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Chemically Treated Hair</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Clear Dose</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Inner Spa</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Scalp Soothing</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Advanced Hair Moisture</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Moroccan Quickie</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Moroccan Super Charge</span><span class="service-dots"></span><span class="service-price">₹1,800</span></div>
+          <div class="service-item"><span class="service-name">Biotop Express</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+          <div class="service-item"><span class="service-name">Biotop</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+        </div>
+
+        <div class="section-label">Ladies Rituals</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Hair Spa</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Dry Damaged Hair</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Frizzy & Unruly Hair</span><span class="service-dots"></span><span class="service-price">₹2,000</span></div>
+          <div class="service-item"><span class="service-name">Chemically Treated Hair</span><span class="service-dots"></span><span class="service-price">₹2,000</span></div>
+          <div class="service-item"><span class="service-name">Clear Dose</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Inner Spa</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Scalp Soothing</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Advanced Hair Moisture</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Moroccan Quickie</span><span class="service-dots"></span><span class="service-price">₹3,000</span></div>
+          <div class="service-item"><span class="service-name">Moroccan Super Charge</span><span class="service-dots"></span><span class="service-price">₹3,000</span></div>
+          <div class="service-item"><span class="service-name">Biotop Express</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+          <div class="service-item"><span class="service-name">Biotop</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: KÉRASTASE SIGNATURE RITUALS -->
+      <div class="menu-card">
+        <div class="card-header">
+          <span class="card-title">Kérastase Paris</span>
+          <span class="card-subtitle-badge">Diagnostic</span>
+        </div>
+
+        <div class="section-label">Recruiter Ritual — 15 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Fusio Scrub Instant Detox</span><span class="service-dots"></span><span class="service-price">₹2,200</span></div>
+          <div class="service-item"><span class="service-name">Instant Conditioning Ritual (Fusio Dose)</span><span class="service-dots"></span><span class="service-price">₹2,200</span></div>
+        </div>
+
+        <div class="section-label" style="justify-content: space-between;">
+          <span>Experience Rituals</span>
+          <span style="font-size: 0.52rem; color: #f1dfa8;">30 MIN &nbsp;/&nbsp; 60 MIN</span>
+        </div>
+        
+        <div class="table-header-row">
+          <span class="col-name">Specialized Diagnostic Focus</span>
+          <span class="col-price">30M</span>
+          <span class="col-price">60M</span>
+        </div>
+
+        <div class="service-list">
+          <div class="table-item-row"><span class="col-name">Discipline</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Curl Manifesto</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Volume Control & Smoothening</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Colour Protection & Radiance</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Intensive Nourishing</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Bond & Fiber Strengthening</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Densifying</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Anti Hair Loss</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Anti Dandruff</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Soothing Scalp</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+          <div class="table-item-row"><span class="col-name">Anti Oiliness</span><span class="col-price">₹3,500</span><span class="col-price">₹4,500</span></div>
+        </div>
+
+        <div class="section-label">Signature VIP Ritual — 90 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Chronologist Youth Revitalizing</span><span class="service-dots"></span><span class="service-price">₹6,000</span></div>
+          <div class="service-item"><span class="service-name">Ultimate Bespoke Hair & Scalp</span><span class="service-dots"></span><span class="service-price">₹6,000</span></div>
+          <div class="service-item"><span class="service-name">Genesis Dual Action Hair Fall</span><span class="service-dots"></span><span class="service-price">₹6,000</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span>LOOKS SALON &nbsp;&bull;&nbsp; COMPLETE SERVICE MENU</span>
+    <span class="footer-center">L O O K S &nbsp;&bull;&nbsp; S A L O N</span>
+    <span>PAGE 03</span>
+  </footer>
+</section>
+
+<!-- ========================================== -->
+<!-- PAGE 4: SKINCARE & CLINICAL AESTHETICS     -->
+<!-- ========================================== -->
+<section class="page" id="page-4">
+  <div class="page-border"></div>
+
+  <header class="page-header">
+    <div class="header-left">
+      <span class="header-badge">03</span>
+      <div class="header-title-group">
+        <h2>Skincare & Facials</h2>
+        <p>NATURALIV, LAAMIS ORGANICS & DERMALOGICA</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-logo-container">
+        
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 150 59" enable-background="new 0 0 150 59" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M22.856,32.081H2.251V1.647h6.018v24.72h14.587V32.081z"/>
+	<path fill="#FFFFFF" d="M56.212,16.846c0,2.184-0.424,4.241-1.274,6.169c-0.85,1.93-2.01,3.605-3.48,5.028
+		c-1.471,1.422-3.184,2.546-5.136,3.37c-1.954,0.825-4.033,1.237-6.239,1.237c-2.208,0-4.293-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.156-3.37c-1.47-1.423-2.63-3.092-3.48-5.009c-0.85-1.917-1.273-3.98-1.273-6.189
+		c0-2.21,0.424-4.279,1.273-6.208c0.85-1.93,2.01-3.606,3.48-5.027c1.472-1.422,3.19-2.54,5.156-3.353
+		c1.965-0.813,4.051-1.219,6.258-1.219c2.206,0,4.286,0.407,6.239,1.219c1.952,0.813,3.665,1.937,5.136,3.371
+		c1.471,1.434,2.63,3.111,3.48,5.027C55.788,12.573,56.212,14.636,56.212,16.846z M50.309,16.846c0-1.396-0.267-2.711-0.802-3.943
+		c-0.535-1.231-1.266-2.31-2.194-3.236c-0.928-0.927-2.016-1.664-3.262-2.21c-1.246-0.545-2.569-0.818-3.968-0.818
+		c-1.425,0-2.761,0.273-4.008,0.818c-1.246,0.547-2.333,1.283-3.261,2.21c-0.929,0.927-1.661,2.005-2.194,3.236
+		c-0.535,1.232-0.801,2.546-0.801,3.943c0,1.37,0.267,2.679,0.801,3.923c0.534,1.244,1.266,2.329,2.194,3.256
+		c0.928,0.927,2.016,1.663,3.261,2.209c1.247,0.545,2.583,0.818,4.008,0.818c1.399,0,2.723-0.273,3.968-0.818
+		c1.246-0.546,2.334-1.283,3.262-2.209c0.928-0.927,1.659-2.012,2.194-3.256C50.042,19.525,50.309,18.216,50.309,16.846z"/>
+	<path fill="#FFFFFF" d="M92.769,16.846c0,2.184-0.425,4.241-1.275,6.169c-0.85,1.93-2.009,3.605-3.481,5.028
+		c-1.47,1.422-3.181,2.546-5.134,3.37c-1.954,0.825-4.034,1.237-6.239,1.237c-2.207,0-4.292-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.155-3.37c-1.471-1.423-2.631-3.092-3.481-5.009c-0.85-1.917-1.275-3.98-1.275-6.189
+		c0-2.21,0.425-4.279,1.275-6.208s2.01-3.606,3.481-5.027c1.471-1.422,3.189-2.54,5.155-3.353c1.966-0.813,4.051-1.219,6.258-1.219
+		c2.205,0,4.285,0.407,6.239,1.219c1.953,0.813,3.664,1.937,5.134,3.371c1.473,1.434,2.632,3.111,3.481,5.027
+		C92.344,12.573,92.769,14.636,92.769,16.846z M86.865,16.846c0-1.396-0.268-2.711-0.801-3.943c-0.535-1.231-1.268-2.31-2.194-3.236
+		c-0.93-0.927-2.018-1.664-3.265-2.21c-1.245-0.545-2.567-0.818-3.967-0.818c-1.425,0-2.761,0.273-4.007,0.818
+		c-1.247,0.547-2.334,1.283-3.262,2.21c-0.929,0.927-1.66,2.005-2.195,3.236c-0.535,1.232-0.801,2.546-0.801,3.943
+		c0,1.37,0.267,2.679,0.801,3.923s1.266,2.329,2.195,3.256c0.928,0.927,2.015,1.663,3.262,2.209
+		c1.246,0.545,2.582,0.818,4.007,0.818c1.399,0,2.722-0.273,3.967-0.818c1.247-0.546,2.335-1.283,3.265-2.209
+		c0.927-0.927,1.659-2.012,2.194-3.256C86.598,19.525,86.865,18.216,86.865,16.846z"/>
+	<path fill="#FFFFFF" d="M123.953,32.081h-7.693l-12.188-13.483v13.483h-5.902V1.61h5.902v13.598L116.527,1.61h7.007l-13.749,14.968
+		L123.953,32.081z"/>
+	<path fill="#FFFFFF" d="M147.75,24.083c0,1.142-0.247,2.227-0.743,3.256c-0.495,1.028-1.188,1.936-2.076,2.722
+		c-0.89,0.787-1.943,1.416-3.161,1.886c-1.22,0.47-2.564,0.704-4.037,0.704c-1.321,0-2.508-0.076-3.563-0.228
+		c-1.054-0.153-2.043-0.395-2.97-0.725c-0.928-0.329-1.816-0.755-2.666-1.276c-0.852-0.519-1.732-1.147-2.646-1.885l4.188-4.228
+		c1.22,1.017,2.412,1.733,3.581,2.153c1.167,0.419,2.438,0.629,3.808,0.629c0.559,0,1.087-0.083,1.581-0.248
+		c0.495-0.165,0.928-0.386,1.296-0.667c0.367-0.279,0.659-0.609,0.876-0.99c0.215-0.381,0.323-0.799,0.323-1.256
+		c0-0.483-0.09-0.915-0.266-1.296c-0.18-0.38-0.496-0.749-0.954-1.104c-0.456-0.355-1.091-0.717-1.904-1.085
+		c-0.813-0.368-1.853-0.781-3.122-1.238c-1.118-0.405-2.191-0.869-3.219-1.389c-1.027-0.521-1.931-1.149-2.705-1.886
+		c-0.773-0.736-1.396-1.6-1.865-2.59c-0.471-0.991-0.704-2.158-0.704-3.504c0-1.295,0.259-2.488,0.78-3.58
+		c0.521-1.092,1.231-2.024,2.133-2.8c0.9-0.774,1.955-1.377,3.162-1.81C134.082,1.216,135.384,1,136.78,1
+		c2.336,0,4.303,0.305,5.904,0.915c1.598,0.609,3.021,1.499,4.267,2.666l-4.115,4.152c-0.762-0.736-1.612-1.301-2.552-1.695
+		c-0.939-0.393-2.045-0.591-3.313-0.591c-0.584,0-1.124,0.089-1.618,0.268c-0.496,0.178-0.921,0.412-1.276,0.704
+		c-0.357,0.292-0.642,0.635-0.856,1.028c-0.216,0.394-0.324,0.806-0.324,1.237c0,0.483,0.101,0.921,0.304,1.314
+		c0.203,0.394,0.546,0.774,1.028,1.142c0.482,0.369,1.125,0.737,1.924,1.105c0.799,0.369,1.796,0.769,2.991,1.2
+		c1.523,0.532,2.829,1.117,3.922,1.751c1.091,0.635,1.982,1.333,2.667,2.095c0.687,0.763,1.193,1.62,1.523,2.571
+		C147.584,21.815,147.75,22.889,147.75,24.083z"/>
+</g>
+<g>
+	<path fill="#FFFFFF" d="M8.561,48.51c-0.221-0.304-0.521-0.554-0.897-0.747c-0.378-0.194-0.803-0.291-1.274-0.291
+		c-0.253,0-0.507,0.034-0.764,0.102c-0.256,0.069-0.491,0.18-0.7,0.332c-0.21,0.151-0.381,0.341-0.512,0.565
+		s-0.197,0.496-0.197,0.811c0,0.305,0.061,0.558,0.181,0.762c0.121,0.207,0.283,0.378,0.488,0.521
+		c0.205,0.141,0.446,0.262,0.724,0.363c0.278,0.098,0.575,0.201,0.89,0.305c0.377,0.116,0.759,0.247,1.148,0.395
+		c0.389,0.146,0.74,0.34,1.055,0.582c0.315,0.241,0.571,0.542,0.771,0.904c0.199,0.363,0.298,0.822,0.298,1.377
+		c0,0.577-0.107,1.078-0.323,1.503c-0.214,0.425-0.5,0.777-0.857,1.055c-0.357,0.276-0.768,0.484-1.235,0.621
+		c-0.467,0.136-0.947,0.204-1.44,0.204c-0.702,0-1.381-0.136-2.037-0.408c-0.657-0.271-1.199-0.677-1.629-1.212l1.211-1.022
+		c0.262,0.387,0.614,0.703,1.054,0.943c0.44,0.242,0.917,0.361,1.432,0.361c0.262,0,0.525-0.035,0.787-0.108
+		c0.262-0.073,0.501-0.188,0.716-0.346c0.214-0.158,0.391-0.354,0.528-0.591c0.135-0.236,0.204-0.521,0.204-0.858
+		c0-0.336-0.07-0.615-0.212-0.843c-0.143-0.224-0.333-0.416-0.575-0.572c-0.241-0.158-0.522-0.292-0.842-0.402
+		c-0.319-0.11-0.659-0.223-1.015-0.338c-0.356-0.104-0.708-0.233-1.054-0.386c-0.346-0.153-0.656-0.346-0.929-0.582
+		c-0.272-0.235-0.493-0.527-0.66-0.874c-0.168-0.346-0.252-0.776-0.252-1.289c0-0.557,0.112-1.034,0.338-1.433
+		c0.226-0.398,0.519-0.729,0.882-0.991c0.361-0.262,0.771-0.454,1.227-0.574c0.457-0.121,0.916-0.181,1.377-0.181
+		c0.65,0,1.258,0.115,1.825,0.345c0.567,0.232,1.022,0.541,1.369,0.93L8.561,48.51z"/>
+	<path fill="#FFFFFF" d="M35.184,57.59h-1.73l4.832-11.143h1.416l4.783,11.143h-1.762l-1.133-2.738h-5.288L35.184,57.59z
+		 M36.852,53.482h4.17l-2.077-5.225L36.852,53.482z"/>
+	<path fill="#FFFFFF" d="M70.227,56.204H75.2v1.386h-6.531V46.447h1.559V56.204z"/>
+	<path fill="#FFFFFF" d="M110.227,52.003c0,0.86-0.149,1.65-0.449,2.368c-0.297,0.719-0.711,1.337-1.233,1.855
+		c-0.525,0.521-1.147,0.924-1.873,1.214c-0.725,0.288-1.511,0.432-2.359,0.432c-0.85,0-1.634-0.144-2.353-0.432
+		c-0.72-0.29-1.342-0.693-1.865-1.214c-0.524-0.519-0.934-1.137-1.227-1.855c-0.296-0.718-0.442-1.508-0.442-2.368
+		c0-0.871,0.146-1.665,0.442-2.384c0.293-0.718,0.702-1.332,1.227-1.842c0.523-0.509,1.146-0.904,1.865-1.188
+		c0.719-0.283,1.503-0.424,2.353-0.424c0.849,0,1.635,0.141,2.359,0.424c0.726,0.283,1.348,0.679,1.873,1.188
+		c0.522,0.51,0.937,1.124,1.233,1.842C110.077,50.338,110.227,51.132,110.227,52.003z M108.544,52.003
+		c0-0.608-0.1-1.183-0.299-1.724c-0.2-0.539-0.482-1.015-0.849-1.424c-0.37-0.408-0.813-0.731-1.333-0.968
+		c-0.518-0.236-1.103-0.354-1.752-0.354c-0.642,0-1.22,0.118-1.739,0.354c-0.521,0.236-0.96,0.56-1.322,0.968
+		c-0.363,0.409-0.643,0.885-0.841,1.424c-0.2,0.541-0.301,1.115-0.301,1.724c0,0.619,0.101,1.202,0.301,1.747
+		c0.198,0.545,0.481,1.021,0.848,1.425c0.368,0.403,0.809,0.72,1.323,0.951c0.514,0.23,1.09,0.346,1.731,0.346
+		c0.639,0,1.221-0.115,1.744-0.346c0.525-0.231,0.971-0.548,1.341-0.951c0.366-0.403,0.648-0.88,0.849-1.425
+		C108.444,53.205,108.544,52.622,108.544,52.003z"/>
+	<path fill="#FFFFFF" d="M142.956,55.354h0.033v-8.907h1.557V57.59h-1.966l-5.886-9.096h-0.032v9.096h-1.558V46.447h2.029
+		L142.956,55.354z"/>
+</g>
+</svg>
+
+      </div>
+      <span class="header-tag">KANKARBAGH, PATNA</span>
+    </div>
+  </header>
+
+  <div class="content-body">
+    <div class="grid-2col">
+      <!-- COLUMN 1: NATURALIV & LAAMIS FACIALS + BLEACH -->
+      <div class="menu-card">
+        <div class="card-header">
+          <span class="card-title">Facials & Clean-Ups</span>
+          <span class="card-subtitle-badge">Naturaliv & Laamis</span>
+        </div>
+
+        <div class="section-label">Naturaliv Clean Ups — 30 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Detox Clean Up</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">De-Tan Clean Up</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+        </div>
+
+        <div class="section-label">Naturaliv Facial (w/o Sea Algae) — 45 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Aquaderm</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+          <div class="service-item"><span class="service-name">Vitaderm</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+          <div class="service-item"><span class="service-name">Sensitive</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+        </div>
+
+        <div class="section-label">Naturaliv Facial (w/ Sea Algae Mask) — 60 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Aquaderm</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+          <div class="service-item"><span class="service-name">Vitaderm</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+          <div class="service-item"><span class="service-name">Sensitive</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+        </div>
+
+        <div class="section-label">Laamis Organic Facial — 60 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Pure White Facial w/ Sea Algae Mask</span><span class="service-dots"></span><span class="service-price">₹4,500</span></div>
+          <div class="service-item"><span class="service-name">Pure Youth Facial w/ Sea Algae Mask</span><span class="service-dots"></span><span class="service-price">₹4,500</span></div>
+        </div>
+
+        <div class="section-label">Laamis Clean Ups — 30 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Pure White Clean Up</span><span class="service-dots"></span><span class="service-price">₹2,200</span></div>
+          <div class="service-item"><span class="service-name">Pure Youth Clean Up</span><span class="service-dots"></span><span class="service-price">₹2,200</span></div>
+        </div>
+
+        <div class="section-label">Bleach & De-Tan Rituals</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Face Bleach</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">D-Tan</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+          <div class="service-item"><span class="service-name">Face & Neck</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+          <div class="service-item"><span class="service-name">Full Arms</span><span class="service-dots"></span><span class="service-price">₹750</span></div>
+          <div class="service-item"><span class="service-name">Full Legs</span><span class="service-dots"></span><span class="service-price">₹850</span></div>
+          <div class="service-item"><span class="service-name">Full Body</span><span class="service-dots"></span><span class="service-price">₹3,000</span></div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: DERMALOGICA & TARGETED MASKS -->
+      <div class="menu-card">
+        <div class="card-header">
+          <span class="card-title">Dermalogica</span>
+          <span class="card-subtitle-badge">Clinical Care</span>
+        </div>
+
+        <div class="section-label">Clinical Treatments — 60 Mins</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Power Brightening Treatment</span><span class="service-dots"></span><span class="service-price">₹5,000</span></div>
+          <div class="service-item"><span class="service-name">Age Smart Treatment</span><span class="service-dots"></span><span class="service-price">₹5,000</span></div>
+          <div class="service-item"><span class="service-name">Mrdibac Clearing Treatment</span><span class="service-dots"></span><span class="service-price">₹5,000</span></div>
+          <div class="service-item"><span class="service-name">Ultracalming Treatment</span><span class="service-dots"></span><span class="service-price">₹5,000</span></div>
+          <div class="service-item"><span class="service-name">Treatment w/ Cooling Contour Mask</span><span class="service-dots"></span><span class="service-price">₹5,500</span></div>
+          <div class="service-item"><span class="service-name">Contour Mask</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Dermalogica Clean Up (30 mins)</span><span class="service-dots"></span><span class="service-price">₹2,500</span></div>
+        </div>
+
+        <div class="section-label">Laamis Specialized Masks</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Achi Tan Out Mask</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+          <div class="service-item"><span class="service-name">Peel Off Skin Acai Mask</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+        </div>
+
+        <div class="section-label">Mintree Targeted Masks</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Lip Mask</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Eye Mask</span><span class="service-dots"></span><span class="service-price">₹250</span></div>
+          <div class="service-item"><span class="service-name">Bikini Mask</span><span class="service-dots"></span><span class="service-price">₹500</span></div>
+        </div>
+
+        <div style="margin-top: 5mm; padding: 3.5mm; background: rgba(212, 175, 55, 0.05); border: 1px solid rgba(212, 175, 55, 0.22); border-radius: 4px; text-align: center;">
+          <div style="font-family: 'Bodoni Moda', serif; font-size: 0.8rem; color: #f1dfa8; letter-spacing: 1.5px; margin-bottom: 1mm;">SKIN EXPERT CONSULTATION</div>
+          <div style="font-size: 0.62rem; color: #a8a49d; line-height: 1.4;">Our certified Dermalogica skin therapists evaluate your face mapping zones before every ritual for tailored radiance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span>LOOKS SALON &nbsp;&bull;&nbsp; COMPLETE SERVICE MENU</span>
+    <span class="footer-center">L O O K S &nbsp;&bull;&nbsp; S A L O N</span>
+    <span>PAGE 04</span>
+  </footer>
+</section>
+
+<!-- ========================================== -->
+<!-- PAGE 5: BODY, HANDS & PATNA LOCATION FOOTER-->
+<!-- ========================================== -->
+<section class="page" id="page-5">
+  <div class="page-border"></div>
+
+  <header class="page-header">
+    <div class="header-left">
+      <span class="header-badge">04</span>
+      <div class="header-title-group">
+        <h2>Body, Hands & Finishing</h2>
+        <p>MANICURE, PEDICURE, WAXING & PRECISION FINISHING</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-logo-container">
+        
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" height="100%" viewBox="0 0 150 59" enable-background="new 0 0 150 59" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M22.856,32.081H2.251V1.647h6.018v24.72h14.587V32.081z"/>
+	<path fill="#FFFFFF" d="M56.212,16.846c0,2.184-0.424,4.241-1.274,6.169c-0.85,1.93-2.01,3.605-3.48,5.028
+		c-1.471,1.422-3.184,2.546-5.136,3.37c-1.954,0.825-4.033,1.237-6.239,1.237c-2.208,0-4.293-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.156-3.37c-1.47-1.423-2.63-3.092-3.48-5.009c-0.85-1.917-1.273-3.98-1.273-6.189
+		c0-2.21,0.424-4.279,1.273-6.208c0.85-1.93,2.01-3.606,3.48-5.027c1.472-1.422,3.19-2.54,5.156-3.353
+		c1.965-0.813,4.051-1.219,6.258-1.219c2.206,0,4.286,0.407,6.239,1.219c1.952,0.813,3.665,1.937,5.136,3.371
+		c1.471,1.434,2.63,3.111,3.48,5.027C55.788,12.573,56.212,14.636,56.212,16.846z M50.309,16.846c0-1.396-0.267-2.711-0.802-3.943
+		c-0.535-1.231-1.266-2.31-2.194-3.236c-0.928-0.927-2.016-1.664-3.262-2.21c-1.246-0.545-2.569-0.818-3.968-0.818
+		c-1.425,0-2.761,0.273-4.008,0.818c-1.246,0.547-2.333,1.283-3.261,2.21c-0.929,0.927-1.661,2.005-2.194,3.236
+		c-0.535,1.232-0.801,2.546-0.801,3.943c0,1.37,0.267,2.679,0.801,3.923c0.534,1.244,1.266,2.329,2.194,3.256
+		c0.928,0.927,2.016,1.663,3.261,2.209c1.247,0.545,2.583,0.818,4.008,0.818c1.399,0,2.723-0.273,3.968-0.818
+		c1.246-0.546,2.334-1.283,3.262-2.209c0.928-0.927,1.659-2.012,2.194-3.256C50.042,19.525,50.309,18.216,50.309,16.846z"/>
+	<path fill="#FFFFFF" d="M92.769,16.846c0,2.184-0.425,4.241-1.275,6.169c-0.85,1.93-2.009,3.605-3.481,5.028
+		c-1.47,1.422-3.181,2.546-5.134,3.37c-1.954,0.825-4.034,1.237-6.239,1.237c-2.207,0-4.292-0.412-6.258-1.237
+		c-1.966-0.824-3.684-1.948-5.155-3.37c-1.471-1.423-2.631-3.092-3.481-5.009c-0.85-1.917-1.275-3.98-1.275-6.189
+		c0-2.21,0.425-4.279,1.275-6.208s2.01-3.606,3.481-5.027c1.471-1.422,3.189-2.54,5.155-3.353c1.966-0.813,4.051-1.219,6.258-1.219
+		c2.205,0,4.285,0.407,6.239,1.219c1.953,0.813,3.664,1.937,5.134,3.371c1.473,1.434,2.632,3.111,3.481,5.027
+		C92.344,12.573,92.769,14.636,92.769,16.846z M86.865,16.846c0-1.396-0.268-2.711-0.801-3.943c-0.535-1.231-1.268-2.31-2.194-3.236
+		c-0.93-0.927-2.018-1.664-3.265-2.21c-1.245-0.545-2.567-0.818-3.967-0.818c-1.425,0-2.761,0.273-4.007,0.818
+		c-1.247,0.547-2.334,1.283-3.262,2.21c-0.929,0.927-1.66,2.005-2.195,3.236c-0.535,1.232-0.801,2.546-0.801,3.943
+		c0,1.37,0.267,2.679,0.801,3.923s1.266,2.329,2.195,3.256c0.928,0.927,2.015,1.663,3.262,2.209
+		c1.246,0.545,2.582,0.818,4.007,0.818c1.399,0,2.722-0.273,3.967-0.818c1.247-0.546,2.335-1.283,3.265-2.209
+		c0.927-0.927,1.659-2.012,2.194-3.256C86.598,19.525,86.865,18.216,86.865,16.846z"/>
+	<path fill="#FFFFFF" d="M123.953,32.081h-7.693l-12.188-13.483v13.483h-5.902V1.61h5.902v13.598L116.527,1.61h7.007l-13.749,14.968
+		L123.953,32.081z"/>
+	<path fill="#FFFFFF" d="M147.75,24.083c0,1.142-0.247,2.227-0.743,3.256c-0.495,1.028-1.188,1.936-2.076,2.722
+		c-0.89,0.787-1.943,1.416-3.161,1.886c-1.22,0.47-2.564,0.704-4.037,0.704c-1.321,0-2.508-0.076-3.563-0.228
+		c-1.054-0.153-2.043-0.395-2.97-0.725c-0.928-0.329-1.816-0.755-2.666-1.276c-0.852-0.519-1.732-1.147-2.646-1.885l4.188-4.228
+		c1.22,1.017,2.412,1.733,3.581,2.153c1.167,0.419,2.438,0.629,3.808,0.629c0.559,0,1.087-0.083,1.581-0.248
+		c0.495-0.165,0.928-0.386,1.296-0.667c0.367-0.279,0.659-0.609,0.876-0.99c0.215-0.381,0.323-0.799,0.323-1.256
+		c0-0.483-0.09-0.915-0.266-1.296c-0.18-0.38-0.496-0.749-0.954-1.104c-0.456-0.355-1.091-0.717-1.904-1.085
+		c-0.813-0.368-1.853-0.781-3.122-1.238c-1.118-0.405-2.191-0.869-3.219-1.389c-1.027-0.521-1.931-1.149-2.705-1.886
+		c-0.773-0.736-1.396-1.6-1.865-2.59c-0.471-0.991-0.704-2.158-0.704-3.504c0-1.295,0.259-2.488,0.78-3.58
+		c0.521-1.092,1.231-2.024,2.133-2.8c0.9-0.774,1.955-1.377,3.162-1.81C134.082,1.216,135.384,1,136.78,1
+		c2.336,0,4.303,0.305,5.904,0.915c1.598,0.609,3.021,1.499,4.267,2.666l-4.115,4.152c-0.762-0.736-1.612-1.301-2.552-1.695
+		c-0.939-0.393-2.045-0.591-3.313-0.591c-0.584,0-1.124,0.089-1.618,0.268c-0.496,0.178-0.921,0.412-1.276,0.704
+		c-0.357,0.292-0.642,0.635-0.856,1.028c-0.216,0.394-0.324,0.806-0.324,1.237c0,0.483,0.101,0.921,0.304,1.314
+		c0.203,0.394,0.546,0.774,1.028,1.142c0.482,0.369,1.125,0.737,1.924,1.105c0.799,0.369,1.796,0.769,2.991,1.2
+		c1.523,0.532,2.829,1.117,3.922,1.751c1.091,0.635,1.982,1.333,2.667,2.095c0.687,0.763,1.193,1.62,1.523,2.571
+		C147.584,21.815,147.75,22.889,147.75,24.083z"/>
+</g>
+<g>
+	<path fill="#FFFFFF" d="M8.561,48.51c-0.221-0.304-0.521-0.554-0.897-0.747c-0.378-0.194-0.803-0.291-1.274-0.291
+		c-0.253,0-0.507,0.034-0.764,0.102c-0.256,0.069-0.491,0.18-0.7,0.332c-0.21,0.151-0.381,0.341-0.512,0.565
+		s-0.197,0.496-0.197,0.811c0,0.305,0.061,0.558,0.181,0.762c0.121,0.207,0.283,0.378,0.488,0.521
+		c0.205,0.141,0.446,0.262,0.724,0.363c0.278,0.098,0.575,0.201,0.89,0.305c0.377,0.116,0.759,0.247,1.148,0.395
+		c0.389,0.146,0.74,0.34,1.055,0.582c0.315,0.241,0.571,0.542,0.771,0.904c0.199,0.363,0.298,0.822,0.298,1.377
+		c0,0.577-0.107,1.078-0.323,1.503c-0.214,0.425-0.5,0.777-0.857,1.055c-0.357,0.276-0.768,0.484-1.235,0.621
+		c-0.467,0.136-0.947,0.204-1.44,0.204c-0.702,0-1.381-0.136-2.037-0.408c-0.657-0.271-1.199-0.677-1.629-1.212l1.211-1.022
+		c0.262,0.387,0.614,0.703,1.054,0.943c0.44,0.242,0.917,0.361,1.432,0.361c0.262,0,0.525-0.035,0.787-0.108
+		c0.262-0.073,0.501-0.188,0.716-0.346c0.214-0.158,0.391-0.354,0.528-0.591c0.135-0.236,0.204-0.521,0.204-0.858
+		c0-0.336-0.07-0.615-0.212-0.843c-0.143-0.224-0.333-0.416-0.575-0.572c-0.241-0.158-0.522-0.292-0.842-0.402
+		c-0.319-0.11-0.659-0.223-1.015-0.338c-0.356-0.104-0.708-0.233-1.054-0.386c-0.346-0.153-0.656-0.346-0.929-0.582
+		c-0.272-0.235-0.493-0.527-0.66-0.874c-0.168-0.346-0.252-0.776-0.252-1.289c0-0.557,0.112-1.034,0.338-1.433
+		c0.226-0.398,0.519-0.729,0.882-0.991c0.361-0.262,0.771-0.454,1.227-0.574c0.457-0.121,0.916-0.181,1.377-0.181
+		c0.65,0,1.258,0.115,1.825,0.345c0.567,0.232,1.022,0.541,1.369,0.93L8.561,48.51z"/>
+	<path fill="#FFFFFF" d="M35.184,57.59h-1.73l4.832-11.143h1.416l4.783,11.143h-1.762l-1.133-2.738h-5.288L35.184,57.59z
+		 M36.852,53.482h4.17l-2.077-5.225L36.852,53.482z"/>
+	<path fill="#FFFFFF" d="M70.227,56.204H75.2v1.386h-6.531V46.447h1.559V56.204z"/>
+	<path fill="#FFFFFF" d="M110.227,52.003c0,0.86-0.149,1.65-0.449,2.368c-0.297,0.719-0.711,1.337-1.233,1.855
+		c-0.525,0.521-1.147,0.924-1.873,1.214c-0.725,0.288-1.511,0.432-2.359,0.432c-0.85,0-1.634-0.144-2.353-0.432
+		c-0.72-0.29-1.342-0.693-1.865-1.214c-0.524-0.519-0.934-1.137-1.227-1.855c-0.296-0.718-0.442-1.508-0.442-2.368
+		c0-0.871,0.146-1.665,0.442-2.384c0.293-0.718,0.702-1.332,1.227-1.842c0.523-0.509,1.146-0.904,1.865-1.188
+		c0.719-0.283,1.503-0.424,2.353-0.424c0.849,0,1.635,0.141,2.359,0.424c0.726,0.283,1.348,0.679,1.873,1.188
+		c0.522,0.51,0.937,1.124,1.233,1.842C110.077,50.338,110.227,51.132,110.227,52.003z M108.544,52.003
+		c0-0.608-0.1-1.183-0.299-1.724c-0.2-0.539-0.482-1.015-0.849-1.424c-0.37-0.408-0.813-0.731-1.333-0.968
+		c-0.518-0.236-1.103-0.354-1.752-0.354c-0.642,0-1.22,0.118-1.739,0.354c-0.521,0.236-0.96,0.56-1.322,0.968
+		c-0.363,0.409-0.643,0.885-0.841,1.424c-0.2,0.541-0.301,1.115-0.301,1.724c0,0.619,0.101,1.202,0.301,1.747
+		c0.198,0.545,0.481,1.021,0.848,1.425c0.368,0.403,0.809,0.72,1.323,0.951c0.514,0.23,1.09,0.346,1.731,0.346
+		c0.639,0,1.221-0.115,1.744-0.346c0.525-0.231,0.971-0.548,1.341-0.951c0.366-0.403,0.648-0.88,0.849-1.425
+		C108.444,53.205,108.544,52.622,108.544,52.003z"/>
+	<path fill="#FFFFFF" d="M142.956,55.354h0.033v-8.907h1.557V57.59h-1.966l-5.886-9.096h-0.032v9.096h-1.558V46.447h2.029
+		L142.956,55.354z"/>
+</g>
+</svg>
+
+      </div>
+      <span class="header-tag">KANKARBAGH, PATNA</span>
+    </div>
+  </header>
+
+  <div class="content-body" style="gap: 2mm;">
+    <div class="grid-2col" style="gap: 3.5mm;">
+      <!-- COLUMN 1: HAND & FEET + THREADING -->
+      <div class="menu-card" style="padding: 2.8mm 3.5mm;">
+        <div class="card-header">
+          <span class="card-title">Hand & Feet</span>
+          <span class="card-subtitle-badge">Nail & Spa</span>
+        </div>
+
+        <div class="section-label">Skin, Hand & Feet</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Manicure</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">French Manicure</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+          <div class="service-item"><span class="service-name">Pedicure</span><span class="service-dots"></span><span class="service-price">₹700</span></div>
+          <div class="service-item"><span class="service-name">French Pedicure</span><span class="service-dots"></span><span class="service-price">₹800</span></div>
+          <div class="service-item"><span class="service-name">Nail Paint</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Nail Filing</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Nail Art</span><span class="service-dots"></span><span class="service-price">₹2,000</span></div>
+        </div>
+
+        <div class="section-label">Spa — Hand & Feet</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Spa Manicure</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+          <div class="service-item"><span class="service-name">Spa Pedicure</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+        </div>
+
+        <div class="section-label">Luxury Hand & Feet</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Luxury Manicure</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Luxury Pedicure</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+        </div>
+
+        <div class="section-label" style="margin-top: 1.8mm;">Threading (Precision)</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Eyebrows</span><span class="service-dots"></span><span class="service-price">₹100</span></div>
+          <div class="service-item"><span class="service-name">Upper Lip / Forehead / Chin (each)</span><span class="service-dots"></span><span class="service-price">₹70</span></div>
+          <div class="service-item"><span class="service-name">Full Face</span><span class="service-dots"></span><span class="service-price">₹500</span></div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: BODY WAXING, REJUVENATION & FACE WAX -->
+      <div class="menu-card" style="padding: 2.8mm 3.5mm;">
+        <div class="card-header">
+          <span class="card-title">Waxing & Body</span>
+          <span class="card-subtitle-badge">Rejuvenation</span>
+        </div>
+
+        <div class="section-label">Body Waxing</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Under Arms</span><span class="service-dots"></span><span class="service-price">₹250</span></div>
+          <div class="service-item"><span class="service-name">Half Arms</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Full Arms & Underarms</span><span class="service-dots"></span><span class="service-price">₹850</span></div>
+          <div class="service-item"><span class="service-name">Half Legs</span><span class="service-dots"></span><span class="service-price">₹600</span></div>
+          <div class="service-item"><span class="service-name">Full Legs</span><span class="service-dots"></span><span class="service-price">₹950</span></div>
+          <div class="service-item"><span class="service-name">Full Wax</span><span class="service-dots"></span><span class="service-price">₹1,500</span></div>
+          <div class="service-item"><span class="service-name">Full Body</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+          <div class="service-item"><span class="service-name">Midriff / Full Front / Back (each)</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+          <div class="service-item"><span class="service-name">B-Line</span><span class="service-dots"></span><span class="service-price">₹1,200</span></div>
+          <div class="service-item"><span class="service-name">Pinkini Brazilian Wax</span><span class="service-dots"></span><span class="service-price">₹2,000</span></div>
+          <div class="service-item"><span class="service-name">Eyebrows Wax (peel off)</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Under Arms (peel off)</span><span class="service-dots"></span><span class="service-price">₹350</span></div>
+        </div>
+
+        <div class="section-label">Face Wax</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Nose Wax</span><span class="service-dots"></span><span class="service-price">₹100</span></div>
+          <div class="service-item"><span class="service-name">Upperlip / Lower Lip (each)</span><span class="service-dots"></span><span class="service-price">₹120</span></div>
+          <div class="service-item"><span class="service-name">Eyebrow / Forehead / Chin (each)</span><span class="service-dots"></span><span class="service-price">₹200</span></div>
+          <div class="service-item"><span class="service-name">Side Lock</span><span class="service-dots"></span><span class="service-price">₹300</span></div>
+          <div class="service-item"><span class="service-name">Neck Wax</span><span class="service-dots"></span><span class="service-price">₹500</span></div>
+        </div>
+
+        <div class="section-label">Body Rejuvenation</div>
+        <div class="service-list">
+          <div class="service-item"><span class="service-name">Arms Polishing</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+          <div class="service-item"><span class="service-name">Full Back Polishing</span><span class="service-dots"></span><span class="service-price">₹1,000</span></div>
+          <div class="service-item"><span class="service-name">Full Body Polishing</span><span class="service-dots"></span><span class="service-price">₹3,500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAND CUSTOM PATNA FOOTER CARD WITH 2 QR CODES -->
+    <div class="patna-footer-card">
+      <div class="pfc-left">
+        <div class="pfc-brand">
+          <span class="pfc-brand-title">LOOKS SALON</span>
+          <span class="pfc-branch-pill">PATNA EXCLUSIVE</span>
+        </div>
+        <div class="pfc-address">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#d4af37" style="flex-shrink:0; margin-top: 1px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <div class="pfc-address-text">
+            <strong>B-184, Vidya Enclave, P.C. Colony</strong><br>
+            Next to Lohiya Park, Kankarbagh, Patna, Bihar – 800020
+          </div>
+        </div>
+      </div>
+
+      <div class="pfc-middle">
+        <div class="pfc-contact-line">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#d4af37" style="flex-shrink:0;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span><strong>+91 77838 65018</strong> &nbsp;|&nbsp; <strong>+91 62877 61333</strong></span>
+        </div>
+        <div class="pfc-contact-line" style="margin-top: 1.2mm;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#d4af37" style="flex-shrink:0;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>info@lookssalon.in &nbsp;·&nbsp; customercare@lookssalon.in</span>
+        </div>
+        <div class="pfc-hours">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#d4af37" style="flex-shrink:0;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <span>Timings: <strong>9:00 AM – 9:00 PM</strong> (Open 7 Days a Week)</span>
+        </div>
+      </div>
+
+      <div class="pfc-right-qr">
+        <!-- 1st QR CODE: PDF REDIRECT -->
+        <div class="qr-box">
+          <img src="qr_pdf.png" class="qr-img" alt="PDF Menu QR">
+          <span class="qr-label">PDF MENU</span>
+          <span class="qr-sub">Scan to Download</span>
+        </div>
+
+        <!-- 2nd QR CODE: HTML REDIRECT -->
+        <div class="qr-box">
+          <img src="qr_html.png" class="qr-img" alt="Web Menu QR">
+          <span class="qr-label">WEB MENU</span>
+          <span class="qr-sub">Scan for Interactive</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span>LOOKS SALON &nbsp;&bull;&nbsp; COMPLETE SERVICE MENU</span>
+    <span class="footer-center">L O O K S &nbsp;&bull;&nbsp; S A L O N</span>
+    <span>PAGE 05</span>
+  </footer>
+</section>
+
+</body>
+</html>
